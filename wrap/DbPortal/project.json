@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/DbPortal/bin/Debug/DbPortal.dll",
+        "pdb": "../../src/DbPortal/bin/Debug/DbPortal.pdb"
+      },
+      "dependencies": {
+        "NMapper": "1.0.0-*",
+        "Npgsql": "1.0.0-*",
+        "ResumeMaker.Common": "1.0.0-*"
+      }
+    },
+    "net451": {
+      "wrappedProject": "../../src/DbPortal/DbPortal.csproj",
+      "bin": {
+        "assembly": "../../src/DbPortal/obj/{configuration}/DbPortal.dll",
+        "pdb": "../../src/DbPortal/obj/{configuration}/DbPortal.pdb"
+      },
+      "dependencies": {
+        "Npgsql": "3.0.3",
+        "NMapper": "1.0.0-*",
+        "ResumeMaker.Common": "1.0.0-*",
+        "RestSharp": "105.1.0"
+      }
+    }
+  }
+}

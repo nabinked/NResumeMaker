@@ -1,0 +1,54 @@
+﻿@using ResumeMaker.Common.Extensions
+@model ResumeMaker.Data.Models.Core.Objective
+
+<div id="ObjectiveViewWrapper" class="form-toggle-wrapper col-sm-12">
+    <div id="SummaryView" class="form-toggle">
+        <h3>
+            Objective
+            <small>
+                <a class="btn btn-link form-toggle-button">
+                    <i class="fa fa-pencil-square-o">
+                    </i>
+                </a>
+            </small>
+        </h3>
+
+
+        @if (Model != null)
+        {
+        <p id="Objective">
+            @Model.ObjectiveText
+        </p>
+        }
+        else
+        {
+        <a class="btn btn-link form-toggle-button">Add Objective</a>
+        }
+    </div>
+    <div id="ObjectiveForm" style="display: none" class="form-toggle">
+        <form asp-controller="Home" asp-action="AddUpdateObjective" asp-route-id="@Model?.Id" asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+            @{
+                var formFunction = Model?.IsNew == null ? "Add" : "Update";
+            }
+            <fieldset>
+                <legend>Add Objective</legend>
+                <input type="hidden" asp-for="UserId" value="@User.GetId()" />
+                <div class="form-group">
+                    <label asp-for="ObjectiveText" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <textarea asp-for="ObjectiveText" class="form-control"></textarea>
+                        <span asp-validation-for="ObjectiveText" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value=@formFunction class="btn btn-default main-bg-color" />
+                        <button value="refresh" asp-refresh class="btn btn-default main-bg-color refresh"></button>
+                    </div>
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+
+</div>

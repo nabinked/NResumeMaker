@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/ResumeMaker.DataModels/bin/Debug/ResumeMaker.DataModels.dll",
+        "pdb": "../../src/ResumeMaker.DataModels/bin/Debug/ResumeMaker.DataModels.pdb"
+      },
+      "dependencies": {
+        "ResumeMaker.Common": "1.0.0-*"
+      }
+    },
+    "net451": {
+      "wrappedProject": "../../src/ResumeMaker.DataModels/ResumeMaker.DataModels.csproj",
+      "bin": {
+        "assembly": "../../src/ResumeMaker.DataModels/obj/{configuration}/ResumeMaker.DataModels.dll",
+        "pdb": "../../src/ResumeMaker.DataModels/obj/{configuration}/ResumeMaker.DataModels.pdb"
+      },
+      "dependencies": {
+        "DbPortal": "1.0.0-*"
+      }
+    }
+  }
+}

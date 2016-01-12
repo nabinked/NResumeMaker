@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/NMapper/bin/Debug/NMapper.dll",
+        "pdb": "../../src/NMapper/bin/Debug/NMapper.pdb"
+      },
+      "dependencies": {
+        "NMapperAttributes": "1.0.0-*"
+      }
+    },
+    "net451": {
+      "wrappedProject": "../../src/NMapper/NMapper.csproj",
+      "bin": {
+        "assembly": "../../src/NMapper/obj/{configuration}/NMapper.dll",
+        "pdb": "../../src/NMapper/obj/{configuration}/NMapper.pdb"
+      },
+      "dependencies": {
+        "NMapperAttributes": "1.0.0.0",
+        "RestSharp": "105.1.0"
+      }
+    }
+  }
+}

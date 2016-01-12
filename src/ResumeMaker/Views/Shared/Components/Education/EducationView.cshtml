@@ -1,0 +1,70 @@
+﻿@using System.Threading.Tasks
+@using Newtonsoft.Json
+@using ResumeMaker.Controllers
+@model IEnumerable<ResumeMaker.Data.Models.Core.Education>
+
+<div id="EducationViewComponentWrapper" class="col-sm-12">
+    <h3>
+        Education <small>
+            <a style="cursor: pointer" id="AddEducationIcon"
+               asp-get-form-ajax="true"
+               asp-get-form-controller-type=@typeof(EducationController)
+               asp-get-form-action="@nameof(EducationController.GetFormForSaveAndUpdate)"
+               data-target-element-id="EducationViewComponentWrapper">
+                <i class="fa fa-plus"></i>
+            </a>
+        </small>
+    </h3>
+    @if (!Model.Any())
+    {
+        <a asp-get-form-ajax="true"
+           asp-get-form-controller-type=@typeof(EducationController)
+           asp-get-form-action="@nameof(EducationController.GetFormForSaveAndUpdate)"
+           data-target-element-id="EducationViewComponentWrapper"
+           class="btn btn-link">
+            Add Education
+        </a>
+    }
+    else
+    {
+        foreach (var education in Model)
+        {
+            <div class="record-row">
+                <div class="col-sm-10 ">
+                    <h4>
+                        @education.EducationDegree
+                        <small>
+                            <a style="cursor: pointer" id="EducationEditIcon"
+                               asp-get-form-ajax="true"
+                               asp-get-form-controller-type=@typeof(EducationController)
+                               asp-get-form-action="@nameof(EducationController.GetFormForSaveAndUpdate)"
+                               data-get-form-params="@JsonConvert.SerializeObject(new { id = education.Id})"
+                               data-target-element-id="EducationViewComponentWrapper"
+                               class="check"><i class="fa fa-pencil"></i></a>
+                        </small>
+                    </h4>
+                </div>
+                <div class="col-sm-2  text-right">
+                    @education.YearOfCompletion
+                </div>
+                <div class="col-sm-10 ">
+                    <strong>
+                        @education.School
+                    </strong>
+                    <br />
+                    <em>@education.Description</em>
+                </div>
+                <div class="col-sm-2 text-right">
+                    <form asp-action="Delete" asp-controller="Education" method="POST" role="form" form form-horizontal asp-route-id="@education.Id" id="">
+                        <div style="opacity: 0.5">
+                            <button class="btn btn-link" type="submit">
+                                <i class="fa fa-remove fa-lg" title="Delete this education record."></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+
+</div>

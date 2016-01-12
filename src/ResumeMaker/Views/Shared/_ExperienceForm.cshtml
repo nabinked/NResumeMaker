@@ -1,0 +1,80 @@
+﻿@using ResumeMaker.Common.Extensions
+@model ResumeMaker.Data.Models.Core.Experience
+
+
+@{
+    var formFunction = Model.Id > 0 ? "Update" : "Add";
+}
+
+<form asp-controller="Experience" asp-action="SaveUpdate"
+      asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+
+    <h4>@formFunction Experience</h4>
+    <hr />
+    <input type="hidden" asp-for="UserId" value="@User.GetId()" />
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <div class="form-group">
+        <label asp-for="JobTitle" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="JobTitle" class="form-control" />
+            <span asp-validation-for="JobTitle" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrganizationName" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="OrganizationName" class="form-control" />
+            <span asp-validation-for="OrganizationName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrganizationCity" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="OrganizationCity" class="form-control" />
+            <span asp-validation-for="OrganizationCity" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrganizationCountry" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="OrganizationCountry" class="form-control" />
+            <span asp-validation-for="OrganizationCountry" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="FromYear" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="FromYear" class="form-control" />
+            <span asp-validation-for="FromYear" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToYear"  class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="ToYear" type="number" class="form-control" />
+            <span asp-validation-for="ToYear" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Duration" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Duration" type="number" class="form-control"/>
+            <span>(in Months)</span>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value=@formFunction class="btn main-bg-color"/>
+            <button value="refresh" asp-refresh class="btn btn-default main-bg-color refresh"></button>
+        </div>
+    </div>
+
+</form>
