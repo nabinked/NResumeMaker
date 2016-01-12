@@ -6,3 +6,5 @@ Application is a basic resume builder. Absolutely alpha so not even close to pro
 Create the databse using the sql query tables and functions first.
 
 Check your connection string settings and then run the application through visual studio.
+
+##Made from scratch. No ASP.NET Identity, no Entity Framework.
