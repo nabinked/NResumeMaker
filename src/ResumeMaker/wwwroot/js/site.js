@@ -27,6 +27,6 @@ function stopLoader() {
     $('.ajax-loader').clearLoader();
 }
 
-$(document).on('click', '.refresh', function (parameters) {
+$(document).on('click', '.refresh', function(parameters) {
     window.location.reload(true);
-})
+});

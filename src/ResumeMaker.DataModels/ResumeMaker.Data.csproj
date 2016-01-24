@@ -52,6 +52,7 @@
     <Compile Include="Models\Core\KeyAccomplishment.cs" />
     <Compile Include="Models\Core\JobDescription.cs" />
     <Compile Include="Models\Core\Experience.cs" />
+    <Compile Include="Models\Core\Skill.cs" />
     <Compile Include="Models\Core\Role.cs" />
     <Compile Include="Models\Core\Objective.cs" />
     <Compile Include="Models\Core\Summary.cs" />

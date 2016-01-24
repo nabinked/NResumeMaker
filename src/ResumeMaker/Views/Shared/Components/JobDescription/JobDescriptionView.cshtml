@@ -2,29 +2,52 @@
 @using ResumeMaker.Controllers
 @model IEnumerable<ResumeMaker.Data.Models.Core.JobDescription>
 
+<div id="JobDescriptionViewWrapper" class="form-toggle-wrapper col-sm-12">
 
-@if (Model.Any())
-{
-    <div id="JobDescriptionViewWrapper" class="form-toggle-wrapper col-sm-12">
+    @if (Model.Any())
+    {
+
         <strong>Roles & Responsibilities</strong>
         <a style="cursor: pointer" id="AddJobDescriptionAnchor"
-        asp-get-form-ajax="true"
-        asp-get-form-controller-type=@typeof(ExperienceController)
-        asp-get-form-action="@nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate)"
-        data-get-form-params ="@Newtonsoft.Json.JsonConvert.SerializeObject(new { id = 0, experienceId = ViewData["ExperienceId"] })"
-        data-target-element-id="JobDescriptionViewWrapper">
-        <i class="fa fa-plus"></i>
+           asp-get-form-ajax="true"
+           asp-get-form-controller-type=@typeof(ExperienceController)
+           asp-get-form-action="@nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate)"
+           data-get-form-params="@Newtonsoft.Json.JsonConvert.SerializeObject(new {id = 0, experienceId = ViewData["ExperienceId"]})"
+           data-target-element-id="JobDescriptionViewWrapper">
+            <i class="fa fa-plus"></i>
         </a>
         <ul>
             @foreach (var jobDescription in Model)
             {
-                <li>
-                    @jobDescription.Description
-                    <form asp-controller="Experience" asp-action="Delete" asp-route-id="@jobDescription.Id" method="POST">
-                        <button type="submit"></button>
-                    </form>
-                </li>
+            <li style="height: 22px">
+                @jobDescription.Description
+                <a id="EditJobDescription"
+                   style="cursor: pointer"
+                   asp-get-form-ajax="true"
+                   asp-get-form-controller-type=@typeof(ExperienceController)
+                   asp-get-form-action="@nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate)"
+                   data-get-form-params="@Newtonsoft.Json.JsonConvert.SerializeObject(new {id = jobDescription.Id, experienceId = ViewData["ExperienceId"]})"
+                   data-target-element-id="JobDescriptionViewWrapper">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <form asp-controller="Experience" style="display: inline" asp-action="DeleteJobDescription" class="form form-inline" asp-route-id="@jobDescription.Id" method="POST">
+                    <button type="submit" class="btn btn-link" style="padding-left: 5px"><i class="fa fa-remove"></i></button>
+                </form>
+            </li>
             }
         </ul>
-    </div>
-}
+
+    }
+    else
+    {
+        <strong>Add Roles & Responsibilities</strong>
+        <a style="cursor: pointer" id="AddJobDescriptionAnchor"
+           asp-get-form-ajax="true"
+           asp-get-form-controller-type=@typeof(ExperienceController)
+           asp-get-form-action="@nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate)"
+           data-get-form-params="@Newtonsoft.Json.JsonConvert.SerializeObject(new {id = 0, experienceId = ViewData["ExperienceId"]})"
+           data-target-element-id="JobDescriptionViewWrapper">
+            <i class="fa fa-plus"></i>
+        </a>
+    }
+</div>

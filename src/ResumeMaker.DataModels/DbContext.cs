@@ -15,5 +15,6 @@ namespace ResumeMaker.Data
         public DbTransactions<Objective> Objective = new DbTransactions<Objective>();
         public DbTransactions<PersonalDetails> PersonalDetail = new DbTransactions<PersonalDetails>();
         public DbTransactions<Role> Role = new DbTransactions<Role>();
+        public DbTransactions<Skill> Skill = new DbTransactions<Skill>();
     }
 }

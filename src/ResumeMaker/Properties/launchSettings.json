@@ -4,7 +4,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:52570",
-      "sslPort": 0
+      "sslPort": 44380
     }
   },
   "profiles": {
@@ -18,6 +18,8 @@
     },
     "web": {
       "commandName": "web",
+      "launchBrowser": true,
+      "launchUrl": "localhost:52570",
       "environmentVariables": {
         "Hosting:Environment": "Development"
       }

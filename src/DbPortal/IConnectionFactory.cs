@@ -1,4 +1,4 @@
-﻿namespace ResumeMaker.Common
+﻿namespace DbPortal
 {
     public interface IConnectionFactory
     {

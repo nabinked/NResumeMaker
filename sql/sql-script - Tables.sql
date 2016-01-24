@@ -113,7 +113,8 @@ DROP TABLE IF EXISTS core.skills;
 CREATE TABLE IF NOT EXISTS core.skills(
 	id					bigserial PRIMARY KEY,
 	skill_name			varchar(250) NOT NULL,
-	proficiency			int NOT NULL CHECK (proficiency > 0 AND proficiency < 6)
+	proficiency			int NOT NULL CHECK (proficiency > 0 AND proficiency < 6),
+    user_id             bigint REFERENCES core.users(id)
 );
 
 DROP TABLE IF EXISTS core.week_days;

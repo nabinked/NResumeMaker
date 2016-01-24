@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using DbPortal;
+using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.OptionsModel;
 using ResumeMaker.Common;
 

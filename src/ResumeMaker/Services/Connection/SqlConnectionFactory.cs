@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.OptionsModel;
+﻿using DbPortal;
+using Microsoft.Extensions.OptionsModel;
 using ResumeMaker.Common;
 
 namespace ResumeMaker.Services.Connection

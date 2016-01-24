@@ -1,13 +1,17 @@
 ﻿using System;
+using DbPortal;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
 using ResumeMaker.Common;
 using ResumeMaker.Services.Account;
 using ResumeMaker.Services.Connection;
+using ResumeMaker.Services.ToastNotification;
+using ResumeMaker.ViewModels;
 
 namespace ResumeMaker
 {
@@ -36,9 +40,12 @@ namespace ResumeMaker
             services.AddMvc();
             services.AddScoped<ISignInManager, SignInManager>();
             services.AddScoped<IPasswordService, PasswordService>();
-            services.AddSingleton<IConnectionFactory, SqlConnectionFactory>();
             services.AddScoped<User, User>();
             services.Configure<Appsettings>(Configuration.GetSection("AppSettings"));
+            services.AddSingleton<IConnectionFactory, SqlConnectionFactory>();
+            services.AddInstance<IToastNotification>(new ToastNotification()
+            {
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -57,7 +64,7 @@ namespace ResumeMaker
             // Add the platform handler to the request pipeline.
             app.UseIISPlatformHandler();
 
-            app.UseCookieAuthentication(options=>
+            app.UseCookieAuthentication(options =>
             {
                 options.LoginPath = "/Account/Login";
                 options.AuthenticationScheme = "Cookies";

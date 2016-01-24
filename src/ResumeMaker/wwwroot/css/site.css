@@ -52,3 +52,6 @@ textarea {
 .record-row:hover {
   background-color: #e8f5f2;
 }
+.inline {
+  display: inline;
+}

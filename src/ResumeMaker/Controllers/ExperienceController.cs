@@ -3,6 +3,8 @@ using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
 using ResumeMaker.Common.Extensions;
 using ResumeMaker.Data.Models.Core;
+using ResumeMaker.Extensions;
+using ResumeMaker.Services.ToastNotification;
 
 namespace ResumeMaker.Controllers
 {
@@ -61,10 +63,14 @@ namespace ResumeMaker.Controllers
             if (jobDescription.IsNew)
             {
                 DbContext.JobDescription.Create(jobDescription);
+                ShowToastNotification("Job Description Created",ToastEnums.ToastType.Success);
+
             }
             else
             {
                 DbContext.JobDescription.Update(jobDescription);
+                ShowToastNotification("Job Description Updated", ToastEnums.ToastType.Success);
+
             }
 
             return Redirect(returnUrl);
@@ -76,7 +82,10 @@ namespace ResumeMaker.Controllers
         {
             if (id > 0)
             {
-                DbContext.JobDescription.Delete(id);
+                if (DbContext.JobDescription.Delete(id))
+                {
+                    ShowToastNotification("Job description deleted successfully.", ToastEnums.ToastType.Success);
+                };
 
             }
             return Redirect(redirectUrl);

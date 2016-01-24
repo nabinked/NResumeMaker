@@ -49,6 +49,7 @@
     <Compile Include="DbConnection.cs" />
     <Compile Include="DbEntity.cs" />
     <Compile Include="DbTransactions.cs" />
+    <Compile Include="IConnectionFactory.cs" />
     <Compile Include="IDbTransactions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />

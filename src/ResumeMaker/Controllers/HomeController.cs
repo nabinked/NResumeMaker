@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Mvc;
 using ResumeMaker.Common.Extensions;
 using ResumeMaker.Data.Models.Core;
+using ResumeMaker.Extensions;
+using ResumeMaker.Services.ToastNotification;
 using ResumeMaker.ViewModels.Home;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,7 +15,6 @@ namespace ResumeMaker.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Home";
-
             var homeViewModel = new HomeViewModel
             {
                 ContactDetails =
@@ -22,7 +23,7 @@ namespace ResumeMaker.Controllers
                 Objective = DbContext.Objective.Get(UserId),
                 IsUserLoggedIn = User.Identity.IsAuthenticated
             };
-            var db = DbContext.User.Find(x=>x.Email=="nabin");
+            var db = DbContext.User.Find(x => x.Email == "nabin");
             return View(homeViewModel);
         }
 

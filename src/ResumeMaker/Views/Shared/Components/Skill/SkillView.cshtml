@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ResumeMaker.Data.Models.Core.Skill>
+
+<div id="SkillViewWrapper" class="form-toggle-wrapper col-sm-12">
+    <div id="SkillView" class="form-toggle">
+        <h3>
+            Skills
+            <small>
+                <a class="btn btn-link form-toggle-button">
+                    <i class="fa fa-pencil-square-o">
+                    </i>
+                </a>
+            </small>
+        </h3>
+
+
+        @if (Model.Any())
+        {
+            <div id="SkillsDiv">
+                @foreach (var skill in Model)
+                {
+                    if (skill.Proficiency <= 0)
+                    {
+                        continue;
+                    }
+                    <div class="col-sm-2">
+                        @skill.SkillName
+                    </div>
+                    <div class="col-sm-10">
+                        @*//@Html.Partial("_Ratings", new RatingsViewModel() { AverageRating = skill.Proficiency, Size = "small-star" })*@
+                        <rating rating="@skill.Proficiency" size-class="small-star"></rating>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+        <a class="btn btn-link form-toggle-button">Add Skills</a>
+        }
+    </div>
+    <div id="SummaryForm" style="display: none" class="form-toggle">
+       
+    </div>
+  
+</div>
