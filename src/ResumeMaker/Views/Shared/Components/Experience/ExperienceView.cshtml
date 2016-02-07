@@ -1,29 +1,20 @@
 ﻿@using Newtonsoft.Json
 @using ResumeMaker.Controllers
 @using ResumeMaker.Data.Models.Core
+@using ResumeMaker.Enums
 @model List<Experience>
 
 <div id="ExperienceViewComponentWrapper" class="col-sm-12">
     <h3>
         Experience <small>
-            <a style="cursor: pointer" id="AddExperienceIcon"
-               asp-get-form-ajax="true"
-               asp-get-form-controller-type=@typeof(ExperienceController)
-               asp-get-form-action="@nameof(ExperienceController.GetFormForSaveAndUpdate)"
-               data-target-element-id="ExperienceViewComponentWrapper">
-                <i class="fa fa-plus"></i>
-            </a>
+            @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForSaveAndUpdate),
+                                "ExperienceViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "")
         </small>
     </h3>
     @if (!Model.Any())
     {
-        <a asp-get-form-ajax="true"
-           asp-get-form-controller-type=@typeof(ExperienceController)
-           asp-get-form-action="@nameof(ExperienceController.GetFormForSaveAndUpdate)"
-           data-target-element-id="ExperienceViewComponentWrapper"
-           class="add-experience btn btn-link">
-            Add Experience
-        </a>
+        @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForSaveAndUpdate),
+                                "ExperienceViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "Add Experience")
     }
     else
     {
@@ -33,12 +24,8 @@
                 <h3>
                     @exp.JobTitle
                     <small>
-                        <a style="cursor: pointer" id="EducationEditIcon"
-                           asp-get-form-ajax="true"
-                           asp-get-form-controller-type=@typeof(ExperienceController)
-                           asp-get-form-action="@nameof(ExperienceController.GetFormForSaveAndUpdate)"
-                           data-target-element-id="ExperienceViewComponentWrapper"
-                           data-get-form-params="@JsonConvert.SerializeObject(new { id = exp.Id})"><i class="fa fa-pencil"></i></a>
+                        @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForSaveAndUpdate),
+                                "ExperienceViewComponentWrapper", new { id = exp.Id }, CudTypeEnum.Update, "")
                     </small>
                 </h3>
 
@@ -59,14 +46,7 @@
 
             </div>
             <div class="col-sm-2 text-right">
-                <form asp-action="Delete" asp-controller="Experience" method="POST" role="form" form form-horizontal asp-route-id="@exp.Id" id="">
-                    <div style="opacity: 0.5">
-                        <button class="btn btn-link" type="submit">
-                            <i class="fa fa-remove fa-lg" title="Delete this work experience record."></i>
-                        </button>
-                    </div>
-                </form>
-
+                @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.Delete), exp.Id)
             </div>
         }
     }

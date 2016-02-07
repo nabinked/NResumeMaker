@@ -1,0 +1,127 @@
+﻿@using ResumeMaker.Common.Extensions
+@using ResumeMaker.Data
+@using ResumeMaker.Data.DbExtensions
+@using ResumeMaker.Data.Models.Core
+@model ResumeMaker.Data.Models.Core.PersonalDetail
+
+<div id="PersonalDetailViewWrapper" class="form-toggle-wrapper col-sm-12">
+    <div id="PersonalDetailView" class="form-toggle">
+        <h3>
+            Personal Details
+            <small>
+                <a class="btn btn-link form-toggle-button">
+                    <i class="fa fa-pencil-square-o">
+                    </i>
+                </a>
+            </small>
+        </h3>
+
+
+        @if (Model != null)
+        {
+            if (Model.DateOfBirth != DateTime.MinValue)
+            {
+                <div class="col-sm-2">Date Of Birth</div>
+                <div class="col-sm-10">@Model.DateOfBirth</div>
+
+            }
+            if (Model.GenderId > 0)
+            {
+                <div class="col-sm-2">Gender</div>
+                <div class="col-sm-10">@Model.GenderId.GetGenderName()</div>
+
+            }
+            if (!string.IsNullOrWhiteSpace(Model.Nationality))
+            {
+                <div class="col-sm-2">Nationality</div>
+                <div class="col-sm-10">@Model.Nationality</div>
+            }
+            if (!string.IsNullOrWhiteSpace(Model.Religion))
+            {
+                <div class="col-sm-2">Religion</div>
+                <div class="col-sm-10">@Model.Religion</div>
+
+            }
+            if (string.IsNullOrWhiteSpace(Model.LanguagesSpoken))
+            {
+                <div class="col-sm-2">Languages</div>
+                <div class="col-sm-10">@Model.LanguagesSpoken</div>
+
+            }
+        }
+        else
+        {
+            <a class="btn btn-link form-toggle-button">Add Personal Details</a>
+        }
+    </div>
+    <div id="PersonalDetailFormDiv" style="display: none" class="form-toggle">
+        <form asp-controller="PersonalDetail" asp-action="AddUpdate" asp-route-id="@Model?.Id" asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+            @{
+                var formFunction = Model?.IsNew == null ? "Add" : "Update";
+            }
+            <fieldset>
+                <legend>Add Personal Detail</legend>
+                <input type="hidden" asp-for="UserId" value="@User.GetId()" />
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <input asp-for="DateOfBirth" class="form-control" type="date" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GenderId" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <select asp-for="GenderId" class="form-control" type="date">
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other Gender</option>
+                        </select>
+                        <span asp-validation-for="GenderId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DriverLicenceId" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <select asp-for="DriverLicenceId" class="form-control" type="date">
+                            <option value="1">Motor Bikes</option>
+                            <option value="2">Car</option>
+                            <option value="3">Medium</option>
+                            <option value="4">Heavy</option>
+                        </select>
+                        <span asp-validation-for="DriverLicenceId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nationality" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <input asp-for="Nationality" class="form-control" />
+                        <span asp-validation-for="Nationality" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Religion" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <input asp-for="Religion" class="form-control" />
+                        <span asp-validation-for="Religion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LanguagesSpoken" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <textarea asp-for="LanguagesSpoken" class="form-control"></textarea>
+                        <span asp-validation-for="LanguagesSpoken" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value=@formFunction class="btn btn-default main-bg-color" />
+                        <button value="refresh" asp-refresh class="btn btn-default main-bg-color refresh"></button>
+                    </div>
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+
+</div>

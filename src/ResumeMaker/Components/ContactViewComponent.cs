@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
+using ResumeMaker.Common.Extensions;
+using ResumeMaker.Data.Models.Core;
 
 namespace ResumeMaker.Components
 {
@@ -6,9 +8,17 @@ namespace ResumeMaker.Components
     {
         public IViewComponentResult Invoke(long userId)
         {
-            var contact =DbContext.ContactDetail.Find(
-                    x => x.UserId, userId);
+            var contact = DbContext.ContactDetail.Find(
+                       x => x.UserId, userId);
+
+            if (contact != null) return View("ContactView", contact);
+
+            contact = new ContactDetail
+            {
+                FirstName = User.GetName(),
+            };
             return View("ContactView", contact);
+            
         }
 
     }

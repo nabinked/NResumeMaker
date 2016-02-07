@@ -1,16 +1,11 @@
 ﻿using System;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Mvc.TagHelpers;
-using Microsoft.AspNet.Mvc.ViewFeatures;
 using Microsoft.AspNet.Razor.TagHelpers;
+using ResumeMaker.Extensions;
 
 namespace ResumeMaker.TagHelpers
 {
     [HtmlTargetElement("a", Attributes = IsGetFormAjaxAttribute)]
-    //[HtmlTargetElement("a", Attributes = GetFormControllerTypeAttribute)]
-    //[HtmlTargetElement("a", Attributes = GetFormActionAttribute)]
-    //[HtmlTargetElement("a", Attributes = GetFormIdAttribute)]
     public class ResumeMakerAnchorTagHelper : TagHelper
     {
         private readonly IUrlHelper _urlHelper;
@@ -57,23 +52,8 @@ namespace ResumeMaker.TagHelpers
         [HtmlAttributeName(TargetLoadElementIdAttribute)]
         public string TargetLoadElementId { get; set; }
 
-        [ViewContext]
-        protected ViewContext Context { get; set; }
-        [FromServices]
-        private IUrlHelper UrlHelper { get; set; }
-
-        public string GetFormControllerName
-        {
-            get
-            {
-                var controllerName = GetFormControllerType.Name;
-                if (controllerName.EndsWith("Controller", StringComparison.OrdinalIgnoreCase))
-                {
-                    controllerName = controllerName.Substring(0, controllerName.Length - "Controller".Length);
-                }
-                return controllerName;
-            }
-        }
+       
+        public string GetFormControllerName => GetFormControllerType.GetControllerName();
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Mvc.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.Core.6.0.0-rc1-final\lib\net451\Microsoft.AspNet.Mvc.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RestSharp.105.1.0\lib\net451\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -38,6 +42,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,17 +53,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext.cs" />
-    <Compile Include="Models\Core\ContactDetails.cs" />
+    <Compile Include="DbExtensions\DbEntityExtensions.cs" />
+    <Compile Include="Models\Core\ContactDetail.cs" />
+    <Compile Include="Models\Core\DriverLicence.cs" />
     <Compile Include="Models\Core\Education.cs" />
     <Compile Include="Models\Core\KeyAccomplishment.cs" />
     <Compile Include="Models\Core\JobDescription.cs" />
     <Compile Include="Models\Core\Experience.cs" />
+    <Compile Include="Models\Core\Gender.cs" />
     <Compile Include="Models\Core\Skill.cs" />
     <Compile Include="Models\Core\Role.cs" />
     <Compile Include="Models\Core\Objective.cs" />
     <Compile Include="Models\Core\Summary.cs" />
     <Compile Include="Models\Core\User.cs" />
-    <Compile Include="Models\Core\PersonalDetails.cs" />
+    <Compile Include="Models\Core\PersonalDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

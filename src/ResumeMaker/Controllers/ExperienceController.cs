@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Extensions.OptionsModel;
+using ResumeMaker.Common;
 using ResumeMaker.Common.Extensions;
 using ResumeMaker.Data.Models.Core;
-using ResumeMaker.Extensions;
 using ResumeMaker.Services.ToastNotification;
 
 namespace ResumeMaker.Controllers
 {
+    [Authorize]
     public class ExperienceController : ResumeMakerBaseController
     {
         public IActionResult GetFormForSaveAndUpdate(long id)
@@ -27,25 +29,43 @@ namespace ResumeMaker.Controllers
             if (experience.IsNew)
             {
                 experience.UserId = User.GetId();
-                var newEducationId = DbContext.Experience.Create(experience);
+                if (DbContext.Experience.Create(experience) > 0)
+                {
+                    ShowSavedSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
 
 
             }
             else
             {
-                var upate = DbContext.Experience.Update(experience);
+                if (DbContext.Experience.Update(experience))
+                {
+                    ShowUpdateSuccessfullyToast();
+                };
             }
             return Redirect(returnUrl);
 
         }
 
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(long id, string returnUrl)
         {
             if (id > 0)
             {
-                DbContext.Experience.Delete(id);
+                if (DbContext.Experience.Delete(id))
+                {
+                    ShowDeletedSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
             }
-            return RedirectToHomeIfReturnUrlEmpty(returnUrl);
+            return Redirect(returnUrl);
         }
 
         public IActionResult GetFormForJobDescriptionSaveAndUpdate(long id, long experienceId)
@@ -62,14 +82,26 @@ namespace ResumeMaker.Controllers
         {
             if (jobDescription.IsNew)
             {
-                DbContext.JobDescription.Create(jobDescription);
-                ShowToastNotification("Job Description Created",ToastEnums.ToastType.Success);
+                if (DbContext.JobDescription.Create(jobDescription) > 0)
+                {
+                    ShowSavedSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
 
             }
             else
             {
-                DbContext.JobDescription.Update(jobDescription);
-                ShowToastNotification("Job Description Updated", ToastEnums.ToastType.Success);
+                if (DbContext.JobDescription.Update(jobDescription))
+                {
+                    ShowToastNotification("Job Description Updated", ToastEnums.ToastType.Success);
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
 
             }
 
@@ -84,7 +116,11 @@ namespace ResumeMaker.Controllers
             {
                 if (DbContext.JobDescription.Delete(id))
                 {
-                    ShowToastNotification("Job description deleted successfully.", ToastEnums.ToastType.Success);
+                    ShowDeletedSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
                 };
 
             }
@@ -92,5 +128,8 @@ namespace ResumeMaker.Controllers
 
         }
 
+        public ExperienceController(IToastNotification toastNotification, IOptions<Appsettings> appOptions) : base(toastNotification, appOptions)
+        {
+        }
     }
 }

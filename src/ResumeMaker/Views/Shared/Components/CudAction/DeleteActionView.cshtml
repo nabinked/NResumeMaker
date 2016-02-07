@@ -1,0 +1,12 @@
+﻿@model ResumeMaker.ViewModels.DeleteActionViewModel
+
+@if (Model.IsVisible)
+{
+    <form asp-action="@Model.ActionName" asp-controller="@Model.ControllerName" method="POST" role="form" class="form form-horizontal" asp-route-id="@Model.RecordId">
+        <div style="opacity: 0.5">
+            <button class="btn btn-link confirm-form-post" type="submit">
+                <i class="fa fa-remove fa-lg" title="Delete this education record."></i>
+            </button>
+        </div>
+    </form>
+}

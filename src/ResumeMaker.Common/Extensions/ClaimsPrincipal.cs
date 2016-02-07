@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Claims;
 
 namespace ResumeMaker.Common.Extensions
 {
@@ -28,6 +23,11 @@ namespace ResumeMaker.Common.Extensions
         public static string GetEmail(this System.Security.Claims.ClaimsPrincipal claimsPrincipal)
         {
             var claim = claimsPrincipal.FindClaim(ClaimTypes.Email);
+            return claim?.Value;
+        }
+        public static string GetPublicProfile(this System.Security.Claims.ClaimsPrincipal claimsPrincipal)
+        {
+            var claim = claimsPrincipal.FindClaim("public_profile");
             return claim?.Value;
         }
     }

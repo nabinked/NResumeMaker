@@ -1,5 +1,8 @@
-﻿@using ResumeMaker.Common.Extensions
-@model ResumeMaker.Data.Models.Core.ContactDetails
+﻿@using System.Threading.Tasks
+@using ResumeMaker.Common.Extensions
+@using ResumeMaker.Extensions
+@using ResumeMaker.Extensions.ModelExtension
+@model ResumeMaker.Data.Models.Core.ContactDetail
 
 
 @{
@@ -7,45 +10,77 @@
 }
 
 <div id="ContactViewWrapper" class="form-toggle-wrapper col-sm-12">
+
     <div class="ContactView form-toggle">
         @if (@Model != null)
         {
 
             <h2>
-                @Model.GetFullName()
-                <small><i class="btn btn-link fa fa-edit form-toggle-button"></i></small>
+                @{
+                    var name = (string.IsNullOrWhiteSpace(Model.GetFullName()) ? "No Name Provided" : Model.GetFullName());
+                    @Html.Raw(name);
+                }
+                
+                <small>@Component.Invoke("CudAction", "")</small>
             </h2>
-            <address>
-                @Model.StreetAddress
-                <br />
-                @Model.Suburb, @Model.State, @Model.Country<br />
-                @User.GetEmail()<br />
-                @if (!string.IsNullOrWhiteSpace(Model.MobileNum))
-                {<text>Mob:</text>
-                @Model.MobileNum<br />
-                }
-                @if (!string.IsNullOrWhiteSpace(Model.TelephoneNum))
-                {<text>Tel:</text>
-                @Model.TelephoneNum
-                <br />
-                }
-
+            <address style="margin-bottom: 1px" href="www.google.com">
+                @Model.GetFullAddress()
             </address>
-        }
-        else
-        {
-            <h3>
-                Contact Details
-                <small><i class="fa fa-plus btn btn-link form-toggle-button"></i></small>
-            </h3>
-            <a class="btn btn-link form-toggle-button">
-                @formFunction Contact Details
+            <a href="mailto:@User.GetEmail()">
+                @User.GetEmail()<br />
             </a>
-        }
+                    if (!string.IsNullOrWhiteSpace(Model.MobileNum))
+                    {<text>Mob:</text>
+                        <a href="tel:@Model.MobileNum">
+                            @Model.MobileNum<br />
+                        </a>
+                    }
+                    if (!string.IsNullOrWhiteSpace(Model.TelephoneNum))
+                    {<text>Tel:</text>
+                        <a href="tel:@Model.TelephoneNum">
+                            @Model.TelephoneNum
+                        </a>
+                        <br />
+                    }
+                    if (Model.GithubUrl.IsStringValidUrl())
+                    {
+                        <a href="@Model.GithubUrl" title="Github Profile">
+                            <i class="fa fa-github"></i>
+                            &nbsp;
+                        </a>
+                    }
+
+                    if (Model.LinkedinUrl.IsStringValidUrl())
+                    {
+                        <a href="@Model.LinkedinUrl" title="LinkedIn Profile">
+                            <i class="fa fa-linkedin"></i>
+                            &nbsp;
+                        </a>;
+                    }
+                    if (Model.TwitterUrl.IsStringValidUrl())
+                    {
+                        <a href="@Model.TwitterUrl" title="Twitter Profile">
+                            <i class="fa fa-twitter"></i>
+                            &nbsp;
+                        </a>;
+                        }
+
+
+                    }
+                    else
+                    {
+                        <h3>
+                            Contact Details
+                            <small>@Component.Invoke("CudAction", "")</small>
+                        </h3>
+                        <a class="btn btn-link form-toggle-button">
+                            @formFunction Contact Details
+                        </a>
+                    }
     </div>
 
     <div id="ContactForm" style="display: none" class="form-toggle">
-        <form asp-controller="Home" asp-action="AddUpdateContact" class="form form-horizontal" role="form">
+        <form asp-controller="ContactDetails" asp-action="AddUpdateContact" asp-route-returnUrl="@ViewHelper.CurrentUrl" class="form form-horizontal" role="form">
             <fieldset>
                 <legend>
                     @formFunction Contact

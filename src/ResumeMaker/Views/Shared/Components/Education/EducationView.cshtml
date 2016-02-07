@@ -1,29 +1,20 @@
 ﻿@using System.Threading.Tasks
-@using Newtonsoft.Json
 @using ResumeMaker.Controllers
+@using ResumeMaker.Enums
 @model IEnumerable<ResumeMaker.Data.Models.Core.Education>
 
 <div id="EducationViewComponentWrapper" class="col-sm-12">
     <h3>
         Education <small>
-            <a style="cursor: pointer" id="AddEducationIcon"
-               asp-get-form-ajax="true"
-               asp-get-form-controller-type=@typeof(EducationController)
-               asp-get-form-action="@nameof(EducationController.GetFormForSaveAndUpdate)"
-               data-target-element-id="EducationViewComponentWrapper">
-                <i class="fa fa-plus"></i>
-            </a>
+            @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.GetFormForSaveAndUpdate),
+                                "EducationViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "")
         </small>
     </h3>
+
     @if (!Model.Any())
     {
-        <a asp-get-form-ajax="true"
-           asp-get-form-controller-type=@typeof(EducationController)
-           asp-get-form-action="@nameof(EducationController.GetFormForSaveAndUpdate)"
-           data-target-element-id="EducationViewComponentWrapper"
-           class="btn btn-link">
-            Add Education
-        </a>
+        @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.GetFormForSaveAndUpdate),
+                            "EducationViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "Add Education")
     }
     else
     {
@@ -34,13 +25,10 @@
                     <h4>
                         @education.EducationDegree
                         <small>
-                            <a style="cursor: pointer" id="EducationEditIcon"
-                               asp-get-form-ajax="true"
-                               asp-get-form-controller-type=@typeof(EducationController)
-                               asp-get-form-action="@nameof(EducationController.GetFormForSaveAndUpdate)"
-                               data-get-form-params="@JsonConvert.SerializeObject(new { id = education.Id})"
-                               data-target-element-id="EducationViewComponentWrapper"
-                               class="check"><i class="fa fa-pencil"></i></a>
+                            @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.GetFormForSaveAndUpdate),
+                                                "EducationViewComponentWrapper", new { id = education.Id }, CudTypeEnum.Update, "")
+
+
                         </small>
                     </h4>
                 </div>
@@ -55,13 +43,7 @@
                     <em>@education.Description</em>
                 </div>
                 <div class="col-sm-2 text-right">
-                    <form asp-action="Delete" asp-controller="Education" method="POST" role="form" form form-horizontal asp-route-id="@education.Id" id="">
-                        <div style="opacity: 0.5">
-                            <button class="btn btn-link" type="submit">
-                                <i class="fa fa-remove fa-lg" title="Delete this education record."></i>
-                            </button>
-                        </div>
-                    </form>
+                    @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.Delete), education.Id)
                 </div>
             </div>
         }

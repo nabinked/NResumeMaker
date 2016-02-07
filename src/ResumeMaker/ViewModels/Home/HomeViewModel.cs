@@ -6,7 +6,7 @@ namespace ResumeMaker.ViewModels.Home
     {
         public bool IsUserLoggedIn { get; set; }
 
-        public ContactDetails ContactDetails { get; set; }
+        public ContactDetail ContactDetails { get; set; }
         public Summary Summary { get; set; }
         public Objective Objective { get; set; }
     }

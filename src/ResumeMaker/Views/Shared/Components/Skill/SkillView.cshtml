@@ -1,13 +1,19 @@
-﻿@model IEnumerable<ResumeMaker.Data.Models.Core.Skill>
+﻿
+@using ResumeMaker.Controllers
+@model IEnumerable<ResumeMaker.Data.Models.Core.Skill>
 
 <div id="SkillViewWrapper" class="form-toggle-wrapper col-sm-12">
     <div id="SkillView" class="form-toggle">
         <h3>
             Skills
             <small>
-                <a class="btn btn-link form-toggle-button">
-                    <i class="fa fa-pencil-square-o">
-                    </i>
+                <a style="cursor: pointer" id="AddJobDescriptionAnchor"
+                   asp-get-form-ajax="true"
+                   asp-get-form-controller-type=@typeof(SkillController)
+                   asp-get-form-action="@nameof(SkillController.GetFormForSaveAndUpdate)"
+                   data-get-form-params="@Newtonsoft.Json.JsonConvert.SerializeObject(new {id = 0})"
+                   data-target-element-id="SkillViewWrapper">
+                    <i class="fa fa-plus"></i>
                 </a>
             </small>
         </h3>
@@ -26,19 +32,27 @@
                         @skill.SkillName
                     </div>
                     <div class="col-sm-10">
-                        @*//@Html.Partial("_Ratings", new RatingsViewModel() { AverageRating = skill.Proficiency, Size = "small-star" })*@
-                        <rating rating="@skill.Proficiency" size-class="small-star"></rating>
+                        <rating class="inline-block" rating="@skill.Proficiency" size-class="small-star"></rating>
+                        <div style="display: inline;vertical-align: super">
+                            <a asp-get-form-action="@nameof(SkillController.GetFormForSaveAndUpdate)"
+                               asp-get-form-ajax="true"
+                               asp-get-form-controller-type=@typeof(SkillController)
+                               data-get-form-params="@Newtonsoft.Json.JsonConvert.SerializeObject(new {id = skill.Id})"
+                               data-target-element-id="SkillViewWrapper"
+                               style="cursor: pointer">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <form asp-controller="Skill" style="display: inline" asp-action="Delete" class="form form-inline" asp-route-id="@skill.Id" method="POST">
+                                <button type="submit" class="btn btn-link confirm-form-post" style="padding-left: 5px"><i class="fa fa-remove"></i></button>
+                            </form>
+                        </div>
                     </div>
                 }
             </div>
         }
         else
         {
-        <a class="btn btn-link form-toggle-button">Add Skills</a>
+            <a class="btn btn-link form-toggle-button">Add Skills</a>
         }
     </div>
-    <div id="SummaryForm" style="display: none" class="form-toggle">
-       
-    </div>
-  
 </div>

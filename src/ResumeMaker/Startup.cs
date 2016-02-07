@@ -1,13 +1,18 @@
 ﻿using System;
 using DbPortal;
+using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Mvc.Routing;
+using Microsoft.AspNet.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.Extensions.WebEncoders;
 using ResumeMaker.Common;
+using ResumeMaker.Services;
 using ResumeMaker.Services.Account;
 using ResumeMaker.Services.Connection;
 using ResumeMaker.Services.ToastNotification;
@@ -40,6 +45,7 @@ namespace ResumeMaker
             services.AddMvc();
             services.AddScoped<ISignInManager, SignInManager>();
             services.AddScoped<IPasswordService, PasswordService>();
+            services.AddScoped<IResumeBuilderViewHelper, ResumeBuilderViewHelper>();
             services.AddScoped<User, User>();
             services.Configure<Appsettings>(Configuration.GetSection("AppSettings"));
             services.AddSingleton<IConnectionFactory, SqlConnectionFactory>();
@@ -57,8 +63,16 @@ namespace ResumeMaker
                 app.UseDeveloperExceptionPage();
             }
 
+
             // Add the platform handler to the request pipeline.
-            app.UseStaticFiles();
+            
+            app.UseStaticFiles(
+                new StaticFileOptions
+                {
+                    ServeUnknownFileTypes = true,
+                    DefaultContentType = "image/png"
+                });
+
             app.UseIISPlatformHandler();
 
             // Add the platform handler to the request pipeline.
@@ -71,16 +85,18 @@ namespace ResumeMaker
                 options.CookieName = ".AptNet.ExternalCookie";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.AutomaticAuthenticate = true;
+                options.AccessDeniedPath = "/Account/Login";
             });
 
             app.UseFacebookAuthentication(options =>
             {
-
                 options.AppId = "1035003543197580";
                 options.AppSecret = "237e18f1289ac356b8b5cbc766af2c6e";
                 options.AuthenticationScheme = "Facebook";
                 options.SignInScheme = "Cookies";
                 options.Scope.Add("email");
+                options.Scope.Add("public_profile");
+                options.Scope.Add("user_birthday");
                 options.BackchannelHttpHandler = new FacebookBackChannelHandler();
                 options.UserInformationEndpoint =
                     "https://graph.facebook.com/v2.4/me?fields=id,name,email,first_name,last_name,location";

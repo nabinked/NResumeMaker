@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Extensions.OptionsModel;
+using ResumeMaker.Common;
 using ResumeMaker.Common.Extensions;
 using ResumeMaker.Data.Models.Core;
+using ResumeMaker.Services.ToastNotification;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ResumeMaker.Controllers
 {
+    [Authorize]
     public class EducationController : ResumeMakerBaseController
     {
         // GET: /<controller>/
@@ -20,19 +24,33 @@ namespace ResumeMaker.Controllers
             return PartialView("_EducationForm", education);
         }
         [HttpPost]
-        [Authorize]
         public IActionResult SaveUpdate(Education education, string returnUrl)
         {
             if (education.IsNew)
             {
                 education.UserId = User.GetId();
-                var newEducationId = DbContext.Education.Create(education);
+
+                if (DbContext.Education.Create(education) > 0)
+                {
+                    ShowSavedSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
 
 
             }
             else
             {
-                var upate = DbContext.Education.Update(education);
+                if (DbContext.Education.Update(education))
+                {
+                    ShowUpdateSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
             }
             return Redirect(returnUrl);
 
@@ -42,11 +60,20 @@ namespace ResumeMaker.Controllers
         {
             if (id > 0)
             {
-                DbContext.Education.Delete(id);
+                if (DbContext.Education.Delete(id))
+                {
+                    ShowDeletedSuccessfullyToast();
+                }
+                else
+                {
+                    ShowTaskFailedToast();
+                };
             }
-            return RedirectToHomeIfReturnUrlEmpty(returnUrl);
+            return Redirect(returnUrl);
         }
 
-
+        public EducationController(IToastNotification toastNotification, IOptions<Appsettings> appOptions) : base(toastNotification, appOptions)
+        {
+        }
     }
 }

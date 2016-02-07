@@ -2,7 +2,7 @@
 
 namespace ResumeMaker.ViewModels.Home
 {
-    public class ContactViewModel : ContactDetails
+    public class ContactViewModel : ContactDetail
     {
         public bool CanEdit { get; set; }
         public string Name { get; set; }

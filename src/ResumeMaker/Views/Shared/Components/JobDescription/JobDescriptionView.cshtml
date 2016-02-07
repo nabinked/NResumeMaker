@@ -21,13 +21,13 @@
             {
             <li style="height: 22px">
                 @jobDescription.Description
-                <a id="EditJobDescription"
-                   style="cursor: pointer"
-                   asp-get-form-ajax="true"
+                <a asp-get-form-action="@nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate)"
+                   asp-get-form-ajax="true" 
                    asp-get-form-controller-type=@typeof(ExperienceController)
-                   asp-get-form-action="@nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate)"
                    data-get-form-params="@Newtonsoft.Json.JsonConvert.SerializeObject(new {id = jobDescription.Id, experienceId = ViewData["ExperienceId"]})"
-                   data-target-element-id="JobDescriptionViewWrapper">
+                   data-target-element-id="JobDescriptionViewWrapper"
+                   id="EditJobDescription" 
+                   style="cursor: pointer">
                     <i class="fa fa-pencil"></i>
                 </a>
                 <form asp-controller="Experience" style="display: inline" asp-action="DeleteJobDescription" class="form form-inline" asp-route-id="@jobDescription.Id" method="POST">

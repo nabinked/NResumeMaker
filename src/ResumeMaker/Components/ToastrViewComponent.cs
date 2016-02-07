@@ -13,9 +13,9 @@ namespace ResumeMaker.Components
             ToastNotification = toastNotification;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public  IViewComponentResult Invoke()
         {
-            return View("ToastrView", ToastNotification);
+            return  View("ToastrView", ToastNotification);
         }
 
     }

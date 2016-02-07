@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ResumeBuilder</title>
-
+    @{ await Html.RenderPartialAsync("_FavIconHeadLinksPartial"); }
     <link rel="stylesheet" href="~/css/all.min.css" />
-    <meta name="description" content="The description of my page" />
+    <meta name="description" content="Create and share resume's on the fly'" />
 </head>
 <body>
     <div class="ajax-loader" style="position: fixed; display: none"></div>
@@ -47,6 +47,6 @@
 
     @RenderSection("scripts", required: false)
 
-@await Component.InvokeAsync("Toastr");
+    @Component.Invoke("Toastr");
 </body>
 </html>

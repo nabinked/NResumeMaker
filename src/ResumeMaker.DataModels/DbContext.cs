@@ -10,10 +10,10 @@ namespace ResumeMaker.Data
         public DbTransactions<Experience> Experience = new DbTransactions<Experience>();
         public DbTransactions<JobDescription> JobDescription = new DbTransactions<JobDescription>();
         public DbTransactions<KeyAccomplishment> KeyAccomplishment = new DbTransactions<KeyAccomplishment>();
-        public DbTransactions<ContactDetails> ContactDetail = new DbTransactions<ContactDetails>();
+        public DbTransactions<ContactDetail> ContactDetail = new DbTransactions<ContactDetail>();
         public DbTransactions<Summary> Summary = new DbTransactions<Summary>();
         public DbTransactions<Objective> Objective = new DbTransactions<Objective>();
-        public DbTransactions<PersonalDetails> PersonalDetail = new DbTransactions<PersonalDetails>();
+        public DbTransactions<PersonalDetail> PersonalDetail = new DbTransactions<PersonalDetail>();
         public DbTransactions<Role> Role = new DbTransactions<Role>();
         public DbTransactions<Skill> Skill = new DbTransactions<Skill>();
     }

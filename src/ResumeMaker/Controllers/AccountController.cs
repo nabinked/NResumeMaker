@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Mvc;
+using Microsoft.Extensions.OptionsModel;
 using ResumeMaker.Common;
 using ResumeMaker.Services.Account;
+using ResumeMaker.Services.ToastNotification;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,10 +22,6 @@ namespace ResumeMaker.Controllers
         [FromServices]
         public User UserService { get; set; }
 
-        public AccountController()
-        {
-
-        }
 
         // GET: /<controller>/
         public IActionResult Login(string returnUrl = null)
@@ -58,7 +56,7 @@ namespace ResumeMaker.Controllers
             var name = externalId.Result.FindFirst(ClaimTypes.Name).Value;
             var email = externalId.Result.FindFirst(ClaimTypes.Email).Value;
 
-
+            long userId = 0;
             var appUser = UserService.GetUserByEmail(email);
             if (appUser != null)
             {
@@ -69,7 +67,7 @@ namespace ResumeMaker.Controllers
                         Email = email,
                         Id = appUser.Id
                     });
-
+                userId = appUser.Id;
             }
             else
             {
@@ -93,17 +91,22 @@ namespace ResumeMaker.Controllers
                     };
                     await SignInManager.SignInAsync(newAppUser);
                 }
+                userId = newUserId;
             }
 
             //TODO delete temp cookie
             //await HttpContext.Authentication.SignOutAsync("Temp");
-            return Redirect(Url.Action("Index", "Home"));
+            return Redirect(Url.Action("Get", "Profile", new { id = userId }));
         }
 
         public async Task<IActionResult> LogOff()
         {
             await SignInManager.LogOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public AccountController(IToastNotification toastNotification, IOptions<Appsettings> appOptions) : base(toastNotification, appOptions)
+        {
         }
     }
 }

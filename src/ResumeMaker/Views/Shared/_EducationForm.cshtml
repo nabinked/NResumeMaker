@@ -1,10 +1,12 @@
 ﻿@using ResumeMaker.Common.Extensions
 @model ResumeMaker.Data.Models.Core.Education
 
+
 @{
     var formFunction = Model.Id > 0 ? "Update" : "Add";
+    var sectionId = 
 }
-<form asp-controller="Education" asp-action="SaveUpdate" id="EducationForm" asp-route-id="@Model.Id" asp-route-userId="@Model.UserId" asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+<form asp-controller="Education" asp-action="SaveUpdate" id="EducationForm" asp-route-id="@Model.Id" asp-route-userId="@Model.UserId" asp-route-returnUrl="@ViewHelper.CurrentUrl" method="POST" class="form form-horizontal" role="form">
     <h4>@formFunction Education</h4>
     <hr />
     <input type="hidden" asp-for="UserId" value="@User.GetId()" />

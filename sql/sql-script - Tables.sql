@@ -83,8 +83,8 @@ CREATE TABLE IF NOT EXISTS core.educations(
 
 DROP TABLE IF EXISTS core.experiences;
 CREATE TABLE IF NOT EXISTS core.experiences(
-	id			bigserial PRIMARY KEY,
-	user_id			bigint	NOT NULL REFERENCES core.users (id),
+	id			          bigserial PRIMARY KEY,
+	user_id			         bigint	NOT NULL REFERENCES core.users (id),
 	job_title		varchar(250) NOT NULL,
 	organization_name	varchar	(250) NOT NULL,
 	organization_city	varchar(250) NOT NULL,
@@ -98,14 +98,14 @@ CREATE TABLE IF NOT EXISTS core.experiences(
 DROP TABLE IF EXISTS core.job_descriptions;
 CREATE TABLE IF NOT EXISTS core.job_descriptions(
 	id					bigserial PRIMARY KEY,
-	experience_id		bigint NOT NULL REFERENCES core.experiences(id),
+	experience_id		bigint NOT NULL REFERENCES core.experiences(id) ON DELETE CASCADE,
 	description		varchar NOT NULL
 );
 
 DROP TABLE IF EXISTS core.key_accomplishments;
 CREATE TABLE IF NOT EXISTS core.key_accomplishments(
 	id					bigserial PRIMARY KEY,
-	experience_id		bigint NOT NULL REFERENCES core.experiences(id),
+	experience_id		bigint NOT NULL REFERENCES core.experiences(id) ON DELETE CASCADE,
 	accomplishment	varchar NOT NULL
 );
 

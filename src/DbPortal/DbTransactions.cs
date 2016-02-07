@@ -32,6 +32,14 @@ namespace DbPortal
             return mapper.GetObjects(_commandGenerator.GetNpgsqlCommand(sqlQuery, param));
         }
 
+        public IEnumerable<TEntity> GetAll()
+        {
+            var sqlGenerator = new SqlGenerator<TEntity>();
+            var sql = sqlGenerator.GetSelectAllQuery();
+            var mapper = new NMapper.Mapper<TEntity>();
+            return mapper.GetObjects(_commandGenerator.GetNpgsqlCommand(sql));
+        }
+
         public TEntity Find(Expression<Func<TEntity, bool>> predicate)
         {
             return null;

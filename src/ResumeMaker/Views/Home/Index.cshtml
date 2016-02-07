@@ -1,76 +1,13 @@
-﻿@using System.Threading.Tasks
+﻿
+@using System.Threading.Tasks
 @using ResumeMaker.Common.Extensions
-@model ResumeMaker.ViewModels.Home.HomeViewModel
 <div class="col-sm-12">
-    @{
-        var userId = User.GetId();
 
-    }    @if (Model.IsUserLoggedIn)
-    {
-        <div id="ResumeDiv">
-
-            <section id="ContactSection" class="row">
-                @Component.Invoke("Contact", userId)
-            </section>
-            <hr />
-            <section id="SummarySection" class="row">
-                @Component.Invoke("Summary", userId)
-            </section>
-            <hr />
-            <section id="ObjectiveSection" class="row">
-                @Component.Invoke("Objective", userId)
-            </section>
-            <hr />
-            <section id="EducationSection" class="row">
-                @Component.Invoke("Education", userId)
-            </section>
-            <hr />
-            <section id="CareerHistorySection" class="row">
-                @Component.Invoke("Experience", userId)
-            </section>
-            <hr/>
-            <section id="SkillsSections" class="row">
-                @Component.Invoke("Skill", userId)
-            </section>
-            <hr />
-        </div>
-    }
-    else
-    {<text>Looking for someone</text>
-    }
+    Search for someone.
+    Home Page under development. 
+    
 </div>
 @section Scripts {
-    <script type="text/javascript">
-        $('body').on('click', '.form-toggle-button', function () {
-            $(this).closest('.form-toggle-wrapper').find('.form-toggle').toggle(100);
-        });
-
-        $('.get-form-ajax').on('click', function () {
-            var $this = $(this);
-            var url = $this.attr("data-load-form-url");
-            var params = JSON.parse($this.attr("data-get-form-params"));
-            var targetLoadElementId = $this.attr("data-target-element-id");
-            var $targetLoadElement = $this.closest('[id=' + targetLoadElementId + ']');
-            getAjaxForm(url, params, $targetLoadElement);
-        });
-
-        function getAjaxForm(url, params, targetLoadElement) {
-            // Assign handlers immediately after making the request,
-            // and remember the jqxhr object for this request
-            var jqxhr = $.get(url, params, function (html) {
-                targetLoadElement.html(html);
-
-            })
-              .fail(function (jqXhr
-        , textStatus, errorThrown) {
-                  console.log(jqXhr);
-                  alert(textStatus + ' ' + errorThrown);
-              })
-              .always(function () {
-              });
-        }
-
-    </script>
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

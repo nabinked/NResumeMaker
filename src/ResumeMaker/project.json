@@ -1,6 +1,8 @@
 {
-    "version": "1.0.0-*",
-
+    "commands": {
+        "web": "Microsoft.AspNet.Server.Kestrel",
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5002"
+    },
     "dependencies": {
         "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
         "Microsoft.AspNet.Authentication.Facebook": "1.0.0-rc1-final",
@@ -21,30 +23,25 @@
         "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
         "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
         "Newtonsoft.Json": "7.0.1",
+        
         "RestSharp": "105.1.0"
     },
-
-    "commands": {
-        "web": "Microsoft.AspNet.Server.Kestrel",
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5002"
-    },
-
-    "frameworks": {
-        "dnx451": {
-            "dependencies": {
-                "DbPortal": "1.0.0-*",
-                "ResumeMaker.Data": "1.0.0-*",
-                "RatingsTagHelper": "1.0.0-*"
-            }
-        }
-    },
-
     "exclude": [
         "wwwroot",
         "node_modules"
     ],
+    "frameworks": {
+        "dnx451": {
+            "dependencies": {
+                "DbPortal": "1.0.0-*",
+                "ResumeMaker.Common": "",
+                "ResumeMaker.Data": ""
+            }
+        }
+    },
     "publishExclude": [
         "**.user",
         "**.vspscc"
-    ]
+    ],
+    "version": "1.0.0-*"
 }

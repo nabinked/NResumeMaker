@@ -1,4 +1,5 @@
-﻿@using ResumeMaker.Common.Extensions
+﻿
+@using ResumeMaker.Common.Extensions
 @model ResumeMaker.Data.Models.Core.Objective
 
 <div id="ObjectiveViewWrapper" class="form-toggle-wrapper col-sm-12">
@@ -6,27 +7,24 @@
         <h3>
             Objective
             <small>
-                <a class="btn btn-link form-toggle-button">
-                    <i class="fa fa-pencil-square-o">
-                    </i>
-                </a>
+                @Component.Invoke("CudAction", "")
             </small>
         </h3>
 
 
         @if (Model != null)
         {
-        <p id="Objective">
-            @Model.ObjectiveText
-        </p>
+            <p id="Objective">
+                @Model.ObjectiveText
+            </p>
         }
         else
         {
-        <a class="btn btn-link form-toggle-button">Add Objective</a>
+            @Component.Invoke("CudAction", "Add Objective")
         }
     </div>
     <div id="ObjectiveForm" style="display: none" class="form-toggle">
-        <form asp-controller="Home" asp-action="AddUpdateObjective" asp-route-id="@Model?.Id" asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+        <form asp-controller="Objective" asp-action="AddUpdateObjective" asp-route-id="@Model?.Id" asp-route-returnUrl="@ViewHelper.CurrentUrl" method="POST" class="form form-horizontal" role="form">
             @{
                 var formFunction = Model?.IsNew == null ? "Add" : "Update";
             }
