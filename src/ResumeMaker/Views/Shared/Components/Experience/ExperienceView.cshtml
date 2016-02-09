@@ -8,13 +8,13 @@
     <h3>
         Experience <small>
             @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForSaveAndUpdate),
-                                "ExperienceViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "")
+                                "ExperienceViewComponentWrapper", new { id = 0, returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Create, "")
         </small>
     </h3>
     @if (!Model.Any())
     {
         @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForSaveAndUpdate),
-                                "ExperienceViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "Add Experience")
+                                "ExperienceViewComponentWrapper", new { id = 0, returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Create, "Add Experience")
     }
     else
     {
@@ -25,7 +25,7 @@
                     @exp.JobTitle
                     <small>
                         @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForSaveAndUpdate),
-                                "ExperienceViewComponentWrapper", new { id = exp.Id }, CudTypeEnum.Update, "")
+                                "ExperienceViewComponentWrapper", new { id = exp.Id, returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Update, "")
                     </small>
                 </h3>
 

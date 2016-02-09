@@ -5,12 +5,19 @@ using Microsoft.AspNet.Mvc.ViewComponents;
 using Newtonsoft.Json;
 using ResumeMaker.Enums;
 using ResumeMaker.Extensions;
+using ResumeMaker.Services;
 using ResumeMaker.ViewModels;
 
 namespace ResumeMaker.Components
 {
     public class CudActionViewComponent : ResumeMakerBaseViewComponent
     {
+        private readonly IResumeBuilderViewHelper _viewHelper;
+
+        public CudActionViewComponent(IResumeBuilderViewHelper viewHelper)
+        {
+            _viewHelper = viewHelper;
+        }
         public bool IsVisible => ViewBag.UserCanEdit ?? false;
 
         public IViewComponentResult Invoke(Type controllerType, string actionName, string targetElementId,
@@ -72,7 +79,8 @@ namespace ResumeMaker.Components
                 ControllerName = controllerType.GetControllerName(),
                 ActionName = actionName,
                 RecordId = id,
-                IsVisible = IsVisible
+                IsVisible = IsVisible,
+                ReturnUrl = _viewHelper.CurrentUrl
             };
             return View("DeleteActionView", dvm);
         }

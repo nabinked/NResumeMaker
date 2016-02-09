@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNet.Mvc;
-using ResumeMaker.Data.Models.Core;
-using ResumeMaker.ViewModels.Home;
 
 namespace ResumeMaker.Components
 {

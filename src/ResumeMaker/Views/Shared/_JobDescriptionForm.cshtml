@@ -5,7 +5,7 @@
     var formFunction = Model.Id > 0 ? "Update" : "Add";
 }
 
-<form asp-controller="Experience" asp-action="SaveUpdateJobDescription" asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+<form asp-controller="Experience" asp-action="SaveUpdateJobDescription" asp-route-returnUrl="@ViewBag.ReturnUrl" method="POST" class="form form-horizontal" role="form">
     <h4>@formFunction Experience</h4>
     <hr />
     <input type="hidden" asp-for="ExperienceId" value="@Model.ExperienceId" />

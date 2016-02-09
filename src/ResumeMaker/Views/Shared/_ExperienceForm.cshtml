@@ -7,7 +7,7 @@
 }
 
 <form asp-controller="Experience" asp-action="SaveUpdate"
-      asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+      asp-route-returnUrl="@ViewBag.ReturnUrl" method="POST" class="form form-horizontal" role="form">
 
     <h4>@formFunction Experience</h4>
     <hr />

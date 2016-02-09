@@ -10,9 +10,9 @@ namespace ResumeMaker.Controllers
 {
     public class SkillController : ResumeMakerBaseController
     {
-        public IActionResult GetFormForSaveAndUpdate(long id)
+        public IActionResult GetFormForSaveAndUpdate(long id, string returnUrl)
         {
-
+            ViewBag.ReturnUrl = returnUrl;
             var skill = new Skill();
             if (id > 0)
             {

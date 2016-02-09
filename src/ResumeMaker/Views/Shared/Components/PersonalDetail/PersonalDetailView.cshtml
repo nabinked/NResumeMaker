@@ -9,10 +9,7 @@
         <h3>
             Personal Details
             <small>
-                <a class="btn btn-link form-toggle-button">
-                    <i class="fa fa-pencil-square-o">
-                    </i>
-                </a>
+                @Component.Invoke("CudAction", "")
             </small>
         </h3>
 
@@ -51,11 +48,11 @@
         }
         else
         {
-            <a class="btn btn-link form-toggle-button">Add Personal Details</a>
+            @Component.Invoke("CudAction", "Add Personal Details")
         }
     </div>
     <div id="PersonalDetailFormDiv" style="display: none" class="form-toggle">
-        <form asp-controller="PersonalDetail" asp-action="AddUpdate" asp-route-id="@Model?.Id" asp-route-returnUrl="@Url.Action("Index", "Home")" method="POST" class="form form-horizontal" role="form">
+        <form asp-controller="PersonalDetail" asp-action="AddUpdate" asp-route-id="@Model?.Id" asp-route-returnUrl="@ViewHelper.CurrentUrl" method="POST" class="form form-horizontal" role="form">
             @{
                 var formFunction = Model?.IsNew == null ? "Add" : "Update";
             }

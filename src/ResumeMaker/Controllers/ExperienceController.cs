@@ -12,8 +12,9 @@ namespace ResumeMaker.Controllers
     [Authorize]
     public class ExperienceController : ResumeMakerBaseController
     {
-        public IActionResult GetFormForSaveAndUpdate(long id)
+        public IActionResult GetFormForSaveAndUpdate(long id, string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             var exp = new Experience();
             if (id > 0)
             {
@@ -51,6 +52,7 @@ namespace ResumeMaker.Controllers
 
         }
 
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(long id, string returnUrl)
         {
@@ -68,8 +70,9 @@ namespace ResumeMaker.Controllers
             return Redirect(returnUrl);
         }
 
-        public IActionResult GetFormForJobDescriptionSaveAndUpdate(long id, long experienceId)
+        public IActionResult GetFormForJobDescriptionSaveAndUpdate(long id, long experienceId, string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             var jobDescription = new JobDescription { ExperienceId = experienceId };
             if (id > 0)
             {
@@ -110,7 +113,7 @@ namespace ResumeMaker.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult DeleteJobDescription(long id, string redirectUrl)
+        public IActionResult DeleteJobDescription(long id, string returnUrl)
         {
             if (id > 0)
             {
@@ -124,7 +127,7 @@ namespace ResumeMaker.Controllers
                 };
 
             }
-            return Redirect(redirectUrl);
+            return Redirect(returnUrl);
 
         }
 

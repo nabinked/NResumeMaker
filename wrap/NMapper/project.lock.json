@@ -8,34 +8,10 @@
         "framework": "DNX,Version=v4.5.1"
       }
     },
-    ".NETFramework,Version=v4.5.1": {
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      }
-    },
     "DNX,Version=v4.5.1/win7-x86": {
       "NMapperAttributes/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
-      }
-    },
-    "DNX,Version=v4.5.1/win7-x64": {
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1"
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x86": {
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x64": {
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
       }
     }
   },
@@ -51,7 +27,8 @@
       "NMapperAttributes >= 1.0.0-*"
     ],
     ".NETFramework,Version=v4.5.1": [
-      "NMapperAttributes >= 1.0.0"
+      "NMapperAttributes >= 1.0.0",
+      "RestSharp >= 105.1.0"
     ]
   }
 }

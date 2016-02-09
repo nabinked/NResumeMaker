@@ -2,22 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    "DNX,Version=v4.5.1": {
-      "NMapper/1.0.0": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1",
-        "dependencies": {
-          "NMapperAttributes": "1.0.0"
-        }
-      },
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1"
-      },
-      "Npgsql/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
+    ".NETFramework,Version=v4.5.1": {
       "RestSharp/105.1.0": {
         "type": "package",
         "compile": {
@@ -25,32 +10,10 @@
         },
         "runtime": {
           "lib/net451/RestSharp.dll": {}
-        }
-      },
-      "ResumeMaker.Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "RestSharp": "105.1.0"
         }
       }
     },
-    "DNX,Version=v4.5.1/win7-x86": {
-      "NMapper/1.0.0": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1",
-        "dependencies": {
-          "NMapperAttributes": "1.0.0"
-        }
-      },
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1"
-      },
-      "Npgsql/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
       "RestSharp/105.1.0": {
         "type": "package",
         "compile": {
@@ -58,34 +21,11 @@
         },
         "runtime": {
           "lib/net451/RestSharp.dll": {}
-        }
-      },
-      "ResumeMaker.Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "RestSharp": "105.1.0"
         }
       }
     }
   },
   "libraries": {
-    "NMapper/1.0.0": {
-      "type": "project",
-      "path": "../NMapper/project.json"
-    },
-    "NMapperAttributes/1.0.0": {
-      "type": "project",
-      "path": "../NMapperAttributes/project.json"
-    },
-    "Npgsql/1.0.0": {
-      "type": "project",
-      "path": "../Npgsql/project.json"
-    },
-    "ResumeMaker.Common/1.0.0": {
-      "type": "project",
-      "path": "../ResumeMaker.Common/project.json"
-    },
     "RestSharp/105.1.0": {
       "type": "package",
       "sha512": "2DRH1cpTOJwesBOwQ0cIhVHUmupbRKt+tdSatfdvndvsawsGMIEgrbq8yv6g3GM1MRVcb37bT8LACVFsqITDmg==",
@@ -123,15 +63,7 @@
   },
   "projectFileDependencyGroups": {
     "": [],
-    "DNX,Version=v4.5.1": [
-      "NMapper >= 1.0.0-*",
-      "Npgsql >= 1.0.0-*",
-      "ResumeMaker.Common >= 1.0.0-*"
-    ],
     ".NETFramework,Version=v4.5.1": [
-      "Npgsql >= 3.0.3",
-      "NMapper >= 1.0.0-*",
-      "ResumeMaker.Common >= 1.0.0-*",
       "RestSharp >= 105.1.0"
     ]
   }

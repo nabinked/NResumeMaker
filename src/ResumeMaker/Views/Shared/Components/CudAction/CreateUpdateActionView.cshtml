@@ -2,8 +2,8 @@
 
 @if (Model.IsVisible)
 {
-    <a style="cursor: pointer" id="EducationEditIcon" data-get-form-params="@Model.FormParams" data-target-element-id="@Model.TargetElementId"
-       class="check get-form-ajax" data-load-form-url="@Model.GetFormUrl">
+    <a style="cursor: pointer" data-get-form-params="@Model.FormParams" data-target-element-id="@Model.TargetElementId"
+       class="get-form-ajax" data-load-form-url="@Model.GetFormUrl">
         @Html.Raw(Model.InnerText)
     </a>
 }

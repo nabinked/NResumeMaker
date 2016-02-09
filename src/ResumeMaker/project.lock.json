@@ -1737,7 +1737,7 @@
       },
       "Npgsql/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.1"
       },
       "Remotion.Linq/2.0.1": {
         "type": "package",
@@ -3752,7 +3752,7 @@
       },
       "Npgsql/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.1"
       },
       "Remotion.Linq/2.0.1": {
         "type": "package",
@@ -5767,7 +5767,7 @@
       },
       "Npgsql/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.1"
       },
       "Remotion.Linq/2.0.1": {
         "type": "package",

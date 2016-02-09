@@ -14,8 +14,9 @@ namespace ResumeMaker.Controllers
     public class EducationController : ResumeMakerBaseController
     {
         // GET: /<controller>/
-        public IActionResult GetFormForSaveAndUpdate(long id)
+        public IActionResult GetFormForSaveAndUpdate(long id, string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             var education = new Education();
             if (id > 0)
             {

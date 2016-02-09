@@ -20,15 +20,20 @@
                     var name = (string.IsNullOrWhiteSpace(Model.GetFullName()) ? "No Name Provided" : Model.GetFullName());
                     @Html.Raw(name);
                 }
-                
+
                 <small>@Component.Invoke("CudAction", "")</small>
             </h2>
             <address style="margin-bottom: 1px" href="www.google.com">
                 @Model.GetFullAddress()
             </address>
-            <a href="mailto:@User.GetEmail()">
-                @User.GetEmail()<br />
-            </a>
+                    var email = User.GetEmail();
+                    if (!string.IsNullOrWhiteSpace(email))
+                    {
+                        <a href="mailto:@User.GetEmail()">
+                            @User.GetEmail()<br />
+                        </a>
+
+                    }
                     if (!string.IsNullOrWhiteSpace(Model.MobileNum))
                     {<text>Mob:</text>
                         <a href="tel:@Model.MobileNum">
@@ -56,9 +61,9 @@
                             <i class="fa fa-linkedin"></i>
                             &nbsp;
                         </a>;
-                    }
-                    if (Model.TwitterUrl.IsStringValidUrl())
-                    {
+                }
+                if (Model.TwitterUrl.IsStringValidUrl())
+                {
                         <a href="@Model.TwitterUrl" title="Twitter Profile">
                             <i class="fa fa-twitter"></i>
                             &nbsp;
@@ -85,7 +90,7 @@
                 <legend>
                     @formFunction Contact
                 </legend>
-                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
                 <input type="hidden" asp-for="UserId" value="@User.GetId()" />
                 <div class="form-group">
                     <label asp-for="FirstName" class="col-sm-2 control-label"></label>

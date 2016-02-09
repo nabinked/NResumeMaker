@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNet.Http;
-
-namespace ResumeMaker.Services
+﻿namespace ResumeMaker.Services
 {
     public interface IResumeBuilderViewHelper
     {

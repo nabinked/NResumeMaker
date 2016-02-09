@@ -10,18 +10,45 @@
 body {
   padding-top: 60px;
   padding-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fcfc;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+span {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #6b6666;
 }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
   padding-left: 15px;
   padding-right: 15px;
+  -webkit-box-shadow: -1px 6px 6px 2px #999;
+  -moz-box-shadow: -1px 6px 6px 2px #999;
+  box-shadow: -1px 6px 6px 2px #999;
+  background-color: white;
 }
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
 textarea {
   max-width: 280px;
+}
+.navbar {
+  -webkit-box-shadow: 0 6px 6px -6px #999;
+  -moz-box-shadow: 0 6px 6px -6px #999;
+  box-shadow: 0 6px 6px -6px #999;
+  /* the rest of your styling */
+  background-color: white;
+  height: 60px;
 }
 .main-bg-color {
   background-color: #138771;

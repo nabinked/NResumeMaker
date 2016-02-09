@@ -7,14 +7,14 @@
     <h3>
         Education <small>
             @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.GetFormForSaveAndUpdate),
-                                "EducationViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "")
+                                "EducationViewComponentWrapper", new { id = 0, returnUrl= ViewHelper.CurrentUrl }, CudTypeEnum.Create, "")
         </small>
     </h3>
 
     @if (!Model.Any())
     {
         @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.GetFormForSaveAndUpdate),
-                            "EducationViewComponentWrapper", new { id = 0 }, CudTypeEnum.Create, "Add Education")
+                            "EducationViewComponentWrapper", new { id = 0, returnUrl = ViewHelper.CurrentUrl}, CudTypeEnum.Create, "Add Education")
     }
     else
     {
@@ -26,7 +26,7 @@
                         @education.EducationDegree
                         <small>
                             @Component.Invoke("CudAction", typeof(EducationController), nameof(EducationController.GetFormForSaveAndUpdate),
-                                                "EducationViewComponentWrapper", new { id = education.Id }, CudTypeEnum.Update, "")
+                                                "EducationViewComponentWrapper", new { id = education.Id, returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Update, "")
 
 
                         </small>
