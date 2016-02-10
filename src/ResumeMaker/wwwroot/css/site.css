@@ -55,15 +55,15 @@ textarea {
   color: white;
 }
 .main-bg-color:active {
-  background-color: #008B8B;
+  background-color: #e8f5f2;
   color: white;
 }
 .main-bg-color:focus {
-  background-color: #008B8B;
+  background-color: #e8f5f2;
   color: white;
 }
 .main-bg-color:hover {
-  background-color: #008B8B;
+  background-color: #e8f5f2;
   color: white;
 }
 .row {
@@ -74,7 +74,7 @@ textarea {
 }
 .record-row {
   overflow: auto;
-  border-top: 1px solid #008B8B;
+  border-top: 1px solid #e8f5f2;
 }
 .record-row:hover {
   background-color: #e8f5f2;
