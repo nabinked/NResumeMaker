@@ -1,0 +1,15 @@
+{
+  "locked": false,
+  "version": 1,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "": [],
+    ".NETFramework,Version=v4.5.1": [
+      "NMapperAttributes >= 1.0.0.0",
+      "RestSharp >= 105.1.0"
+    ]
+  }
+}

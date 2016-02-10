@@ -1,0 +1,143 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "NMapper/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "NMapperAttributes": "1.0.0",
+          "RestSharp": "105.1.0"
+        }
+      },
+      "NMapperAttributes/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Npgsql/3.0.5": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "RestSharp/105.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net451/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net451/RestSharp.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
+      "NMapper/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "NMapperAttributes": "1.0.0",
+          "RestSharp": "105.1.0"
+        }
+      },
+      "NMapperAttributes/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Npgsql/3.0.5": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "RestSharp/105.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net451/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net451/RestSharp.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x64": {
+      "NMapper/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "NMapperAttributes": "1.0.0",
+          "RestSharp": "105.1.0"
+        }
+      },
+      "NMapperAttributes/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Npgsql/3.0.5": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "RestSharp/105.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net451/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net451/RestSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NMapper/1.0.0": {
+      "type": "project",
+      "path": "../../src/NMapper/project.json"
+    },
+    "NMapperAttributes/1.0.0": {
+      "type": "project",
+      "path": "../NMapperAttributes/project.json"
+    },
+    "Npgsql/3.0.5": {
+      "type": "project",
+      "path": "../Npgsql/project.json"
+    },
+    "RestSharp/105.1.0": {
+      "type": "package",
+      "sha512": "2DRH1cpTOJwesBOwQ0cIhVHUmupbRKt+tdSatfdvndvsawsGMIEgrbq8yv6g3GM1MRVcb37bT8LACVFsqITDmg==",
+      "files": [
+        "lib/net35/RestSharp.dll",
+        "lib/net35/RestSharp.xml",
+        "lib/net35-client/RestSharp.dll",
+        "lib/net35-client/RestSharp.xml",
+        "lib/net4/RestSharp.dll",
+        "lib/net4/RestSharp.xml",
+        "lib/net45/RestSharp.dll",
+        "lib/net45/RestSharp.xml",
+        "lib/net451/RestSharp.dll",
+        "lib/net451/RestSharp.xml",
+        "lib/net451-client/RestSharp.dll",
+        "lib/net451-client/RestSharp.xml",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/net452-client/RestSharp.dll",
+        "lib/net452-client/RestSharp.xml",
+        "lib/net45-client/RestSharp.dll",
+        "lib/net45-client/RestSharp.xml",
+        "lib/net4-client/RestSharp.dll",
+        "lib/net4-client/RestSharp.xml",
+        "lib/sl4/RestSharp.Silverlight.dll",
+        "lib/sl4/RestSharp.Silverlight.xml",
+        "lib/windowsphone8/RestSharp.WindowsPhone.dll",
+        "lib/windowsphone8/RestSharp.WindowsPhone.xml",
+        "readme.txt",
+        "RestSharp.105.1.0.nupkg",
+        "RestSharp.105.1.0.nupkg.sha512",
+        "RestSharp.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [],
+    ".NETFramework,Version=v4.5.1": [
+      "Npgsql >= 3.0.5",
+      "RestSharp >= 105.1.0",
+      "NMapper >= 1.0.0-*"
+    ]
+  }
+}

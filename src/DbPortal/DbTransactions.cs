@@ -9,8 +9,6 @@ namespace DbPortal
     {
         private readonly CommandGenerator _commandGenerator;
 
-        private readonly IConnectionFactory _connectionFactory;
-
         public DbTransactions()
         {
             //_connectionFactory = connectionFactory;
