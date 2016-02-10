@@ -5,11 +5,11 @@
     "DNX,Version=v4.5.1": {
       "DbPortal/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "NMapper": "1.0.0",
-          "Npgsql": "1.0.0",
-          "ResumeMaker.Common": "1.0.0"
+          "Npgsql": "3.0.5",
+          "RestSharp": "105.1.0"
         }
       },
       "EntityFramework.Core/7.0.0-rc1-final": {
@@ -1726,16 +1726,17 @@
       },
       "NMapper/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "NMapperAttributes": "1.0.0"
+          "NMapperAttributes": "1.0.0",
+          "RestSharp": "105.1.0"
         }
       },
       "NMapperAttributes/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Npgsql/1.0.0": {
+      "Npgsql/3.0.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       },
@@ -1769,36 +1770,6 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "DbPortal": "1.0.0",
-          "Microsoft.AspNet.Antiforgery": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Authorization": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Cryptography.Internal": "1.0.0-rc1-final",
-          "Microsoft.AspNet.DataProtection": "1.0.0-rc1-final",
-          "Microsoft.AspNet.DataProtection.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.FileProviders.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Html.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Mvc.Abstractions": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Routing": "1.0.0-rc1-final",
-          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Binder": "1.0.0-rc1-final",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Localization": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Localization.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.MemoryPool": "1.0.0-rc1-final",
-          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
-          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Primitives": "1.0.0-rc1-final",
-          "Microsoft.Extensions.WebEncoders": "1.0.0-rc1-final",
-          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
-          "Microsoft.Net.Http.Headers": "1.0.0-rc1-final",
-          "Newtonsoft.Json": "6.0.6",
           "RestSharp": "105.1.0"
         }
       },
@@ -2017,11 +1988,11 @@
     "DNX,Version=v4.5.1/win7-x86": {
       "DbPortal/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "NMapper": "1.0.0",
-          "Npgsql": "1.0.0",
-          "ResumeMaker.Common": "1.0.0"
+          "Npgsql": "3.0.5",
+          "RestSharp": "105.1.0"
         }
       },
       "EntityFramework.Core/7.0.0-rc1-final": {
@@ -3741,16 +3712,17 @@
       },
       "NMapper/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "NMapperAttributes": "1.0.0"
+          "NMapperAttributes": "1.0.0",
+          "RestSharp": "105.1.0"
         }
       },
       "NMapperAttributes/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Npgsql/1.0.0": {
+      "Npgsql/3.0.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       },
@@ -3784,36 +3756,6 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "DbPortal": "1.0.0",
-          "Microsoft.AspNet.Antiforgery": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Authorization": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Cryptography.Internal": "1.0.0-rc1-final",
-          "Microsoft.AspNet.DataProtection": "1.0.0-rc1-final",
-          "Microsoft.AspNet.DataProtection.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.FileProviders.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Html.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Mvc.Abstractions": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Routing": "1.0.0-rc1-final",
-          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Binder": "1.0.0-rc1-final",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Localization": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Localization.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.MemoryPool": "1.0.0-rc1-final",
-          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
-          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Primitives": "1.0.0-rc1-final",
-          "Microsoft.Extensions.WebEncoders": "1.0.0-rc1-final",
-          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
-          "Microsoft.Net.Http.Headers": "1.0.0-rc1-final",
-          "Newtonsoft.Json": "6.0.6",
           "RestSharp": "105.1.0"
         }
       },
@@ -4032,11 +3974,11 @@
     "DNX,Version=v4.5.1/win7-x64": {
       "DbPortal/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "NMapper": "1.0.0",
-          "Npgsql": "1.0.0",
-          "ResumeMaker.Common": "1.0.0"
+          "Npgsql": "3.0.5",
+          "RestSharp": "105.1.0"
         }
       },
       "EntityFramework.Core/7.0.0-rc1-final": {
@@ -5756,16 +5698,17 @@
       },
       "NMapper/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
-          "NMapperAttributes": "1.0.0"
+          "NMapperAttributes": "1.0.0",
+          "RestSharp": "105.1.0"
         }
       },
       "NMapperAttributes/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+        "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Npgsql/1.0.0": {
+      "Npgsql/3.0.5": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       },
@@ -5799,36 +5742,6 @@
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "DbPortal": "1.0.0",
-          "Microsoft.AspNet.Antiforgery": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Authorization": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Cryptography.Internal": "1.0.0-rc1-final",
-          "Microsoft.AspNet.DataProtection": "1.0.0-rc1-final",
-          "Microsoft.AspNet.DataProtection.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Diagnostics.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.FileProviders.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Html.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Extensions": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
-          "Microsoft.AspNet.Mvc.Abstractions": "6.0.0-rc1-final",
-          "Microsoft.AspNet.Routing": "1.0.0-rc1-final",
-          "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Configuration.Binder": "1.0.0-rc1-final",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Localization": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Localization.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.MemoryPool": "1.0.0-rc1-final",
-          "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
-          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.Primitives": "1.0.0-rc1-final",
-          "Microsoft.Extensions.WebEncoders": "1.0.0-rc1-final",
-          "Microsoft.Extensions.WebEncoders.Core": "1.0.0-rc1-final",
-          "Microsoft.Net.Http.Headers": "1.0.0-rc1-final",
-          "Newtonsoft.Json": "6.0.6",
           "RestSharp": "105.1.0"
         }
       },
@@ -6052,13 +5965,13 @@
     },
     "NMapper/1.0.0": {
       "type": "project",
-      "path": "../../wrap/NMapper/project.json"
+      "path": "../NMapper/project.json"
     },
     "NMapperAttributes/1.0.0": {
       "type": "project",
       "path": "../../wrap/NMapperAttributes/project.json"
     },
-    "Npgsql/1.0.0": {
+    "Npgsql/3.0.5": {
       "type": "project",
       "path": "../../wrap/Npgsql/project.json"
     },
@@ -8264,8 +8177,8 @@
     ],
     "DNX,Version=v4.5.1": [
       "DbPortal >= 1.0.0-*",
-      "ResumeMaker.Common ",
-      "ResumeMaker.Data "
+      "ResumeMaker.Common >= 1.0.0-*",
+      "ResumeMaker.Data >= 1.0.0-*"
     ]
   }
 }

@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "NMapper.csproj",
+      "bin": {
+        "assembly": "obj/{configuration}/NMapper.dll",
+        "pdb": "obj/{configuration}/NMapper.pdb"
+      },
+      "dependencies": {
+        "NMapperAttributes": "1.0.0.0",
+        "RestSharp": "105.1.0"
+      }
+    }
+  }
+}
