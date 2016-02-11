@@ -93,7 +93,7 @@ call %DNX_RUNTIME%\bin\dnu restore "%DEPLOYMENT_SOURCE%" %SCM_DNU_RESTORE_OPTION
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 4. Run DNU Bundle
-printenv
+SET
 echo %projectJson%
 call %DNX_RUNTIME%\bin\dnu publish %projectJson% --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
 IF !ERRORLEVEL! NEQ 0 goto error
