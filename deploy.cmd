@@ -102,8 +102,8 @@ echo all env variables
 SET
 :: 4. Run DNU Bundle
 echo executing dnu publish now
-
-call %DNX_RUNTIME%\bin\dnu publish "C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker\project.json" --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
+echo %project%
+call %DNX_RUNTIME%\bin\dnu publish %project% --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 5. KuduSync
