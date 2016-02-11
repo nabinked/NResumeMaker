@@ -5,7 +5,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{28225C89-943D-4840-A9A7-31DBF6C6AAF6}</ProjectGuid>
+    
     <OutputType>Library</OutputType>
+    <OutputPath>bin\Debug\</OutputPath>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NMapper</RootNamespace>
     <AssemblyName>NMapper</AssemblyName>
