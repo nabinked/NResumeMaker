@@ -92,9 +92,10 @@ IF !ERRORLEVEL! NEQ 0 goto error
 
 
 :: 3. Run DNU Restore
-echo %DEPLOYMENT_SOURCE%
-echo %SCM_DNU_RESTORE_OPTIONS%
 call %DNX_RUNTIME%\bin\dnu restore "%DEPLOYMENT_SOURCE%" %SCM_DNU_RESTORE_OPTIONS%
+echo !DEPLOYMENT_SOURCE!
+echo !SCM_DNU_RESTORE_OPTIONS!
+
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 4. Run DNU Bundle
