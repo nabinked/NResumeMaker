@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ResumeBuilder (ASP.NET 5 Application)</title>
+    @{ await Html.RenderPartialAsync("_FavIconHeadLinksPartial"); }
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <meta name="description" content="Create and share resume's on the fly'" />
+</head>
+<body>
+    <div class="ajax-loader" style="position: fixed; display: none"></div>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <img src="~/images/resumebuilder-icon.png" class="img img-circle" height="25px" width="25px" />
+                    <a asp-controller="Home" asp-action="Index">
+                        Resume Builder
+                    </a>
+
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <form class="navbar-form" role="search" asp-controller="Search">
+                    <div class="input-group col-sm-3">
+                        <input type="search" name="SearchString" class="form-control pull-right" placeholder="Search..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+                @await Html.PartialAsync("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2015 - ResumeMaker</p>
+        </footer>
+    </div>
+
+
+    <script src="~/js/all.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+    @Component.Invoke("Toastr");
+</body>
+</html>

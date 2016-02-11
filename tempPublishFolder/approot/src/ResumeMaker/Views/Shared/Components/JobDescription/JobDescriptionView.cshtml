@@ -1,0 +1,32 @@
+﻿@using System.Threading.Tasks
+@using ResumeMaker.Controllers
+@using ResumeMaker.Enums
+@model IEnumerable<ResumeMaker.Data.Models.Core.JobDescription>
+
+<div id="JobDescriptionViewWrapper" class="form-toggle-wrapper col-sm-12">
+
+    @if (Model.Any())
+    {
+
+        <h5>Roles & Responsibilities</h5>
+        @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate), "JobDescriptionViewWrapper",
+                            new { id = 0, experienceId = ViewData["ExperienceId"], returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Create, "")
+        <ul>
+            @foreach (var jobDescription in Model)
+            {
+                <li style="height: 22px">
+                    @jobDescription.Description
+                    @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate), "JobDescriptionViewWrapper",
+                            new { id = jobDescription.Id, experienceId = ViewData["ExperienceId"], returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Update, "")
+                    @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.DeleteJobDescription), jobDescription.Id)
+                </li>
+            }
+        </ul>
+
+    }
+    else
+    {
+        @Component.Invoke("CudAction", typeof(ExperienceController), nameof(ExperienceController.GetFormForJobDescriptionSaveAndUpdate), "JobDescriptionViewWrapper",
+                            new { id = 0, experienceId = ViewData["ExperienceId"], returnUrl = ViewHelper.CurrentUrl }, CudTypeEnum.Create, "Add Roles and Responsibilities")
+    }
+</div>

@@ -1,0 +1,36 @@
+﻿@using ResumeMaker.Common.Extensions
+@model ResumeMaker.Data.Models.Core.Skill
+
+@{
+    var formFunction = Model.Id > 0 ? "Update" : "Add";
+}
+
+<form asp-controller="Skill" asp-action="SaveUpdate" asp-route-returnUrl="@ViewBag.ReturnUrl" method="POST" class="form form-horizontal" role="form">
+    <h4>@formFunction Skill</h4>
+    <hr />
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="UserId" value="@User.GetId()" />
+    <div class="form-group">
+        <label asp-for="SkillName" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="SkillName" class="form-control" />
+            <span asp-validation-for="SkillName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Proficiency" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Proficiency" class="form-control" type="number"/><span>On a scale of 1 to 5</span> <br/>
+            <span asp-validation-for="Proficiency" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value=@formFunction class="btn main-bg-color" />
+            <button value="refresh" asp-refresh class="btn btn-default main-bg-color refresh"></button>
+        </div>
+
+    </div>
+
+
+</form>

@@ -1,0 +1,30 @@
+﻿@using ResumeMaker.Common.Extensions
+@model ResumeMaker.Data.Models.Core.JobDescription
+
+@{
+    var formFunction = Model.Id > 0 ? "Update" : "Add";
+}
+
+<form asp-controller="Experience" asp-action="SaveUpdateJobDescription" asp-route-returnUrl="@ViewBag.ReturnUrl" method="POST" class="form form-horizontal" role="form">
+    <h4>@formFunction Experience</h4>
+    <hr />
+    <input type="hidden" asp-for="ExperienceId" value="@Model.ExperienceId" />
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label asp-for="Description" class="col-sm-2 control-label"></label>
+        <div class="col-sm-6">
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value=@formFunction class="btn main-bg-color" />
+            <button value="refresh" asp-refresh class="btn btn-default main-bg-color refresh"></button>
+        </div>
+
+    </div>
+
+
+</form>
