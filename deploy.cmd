@@ -94,6 +94,7 @@ IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 4. Run DNU Bundle
 echo %SCM_DNU_PUBLISH_OPTIONS%
+echo %projectJson%
 call %DNX_RUNTIME%\bin\dnu publish %projectJson% --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
 IF !ERRORLEVEL! NEQ 0 goto error
 
