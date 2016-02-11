@@ -101,8 +101,8 @@ IF !ERRORLEVEL! NEQ 0 goto error
 :: 4. Run DNU Bundle
 SET
 echo %projectJson%
-call %DNX_RUNTIME%\bin\dnu publish %projectJson% --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
-IF !ERRORLEVEL! NEQ 0 goto error
+::call %DNX_RUNTIME%\bin\dnu publish %projectJson% --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
+::IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 5. KuduSync
 call %KUDU_SYNC_CMD% -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
