@@ -5950,7 +5950,7 @@
     },
     "NMapper/1.0.0": {
       "type": "project",
-      "path": "../NMapper/project.json"
+      "path": "../../wrap/NMapper/project.json"
     },
     "NMapperAttributes/1.0.0": {
       "type": "project",

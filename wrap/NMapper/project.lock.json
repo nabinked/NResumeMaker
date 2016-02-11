@@ -3,18 +3,30 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
+      "NMapperAttributes/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
       "RestSharp/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
+      "NMapperAttributes/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
       "RestSharp/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
+      "NMapperAttributes/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
       "RestSharp/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
@@ -22,6 +34,10 @@
     }
   },
   "libraries": {
+    "NMapperAttributes/1.0.0": {
+      "type": "project",
+      "path": "../NMapperAttributes/project.json"
+    },
     "RestSharp/1.0.0": {
       "type": "project",
       "path": "../RestSharp/project.json"
@@ -30,6 +46,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.5.1": [
+      "NMapperAttributes >= 1.0.0",
       "RestSharp >= 105.1.0"
     ]
   }
