@@ -37,7 +37,3 @@ Get-ChildItem -Path $PSScriptRoot\src -Filter project.json -Recurse | ForEach-Ob
  # run DNU publish on all project.json files in the src folder including 2>1 to redirect stderr to stdout for badly behaved tools
 Write-Host "===== PUBLISH ====="
 Get-ChildItem -Path $PSScriptRoot\src -Filter project.json -Recurse | ForEach-Object { & dnu publish $_.FullName 2>1 -o "./pub" }
-
-# workaround for what seems a bug in dnu not copying runtimes
-Write-Host ("Copy runtimes to {0}\approot" -f $sourceDir)
-Copy-Item $env:USERPROFILE\.dnx\runtimes $sourceDir\approot -Recurse
