@@ -48,7 +48,8 @@ IF NOT DEFINED KUDU_SYNC_CMD (
   SET KUDU_SYNC_CMD=%appdata%\npm\kuduSync.cmd
 )
 IF NOT DEFINED DEPLOYMENT_TEMP (
-  SET DEPLOYMENT_TEMP=%temp%\___deployTemp%random%
+  ::SET DEPLOYMENT_TEMP=%temp%\___deployTemp%random%
+  SET DEPLOYMENT_TEMP=%tempPublishFolder%
   SET CLEAN_LOCAL_DEPLOYMENT_TEMP=true
 )
 
