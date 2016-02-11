@@ -1,4 +1,3 @@
 [config]
-project = src/ResumeMaker
-[config]
+project = src\ResumeMaker\project.json
 command = deploy.cmd
