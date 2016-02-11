@@ -6,6 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{178B8037-6FC5-440D-B9AF-80CBF95A0FED}</ProjectGuid>
     <OutputType>Library</OutputType>
+        <OutputPath>bin\Debug\</OutputPath>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DbPortal</RootNamespace>
     <AssemblyName>DbPortal</AssemblyName>
