@@ -24,4 +24,4 @@ IF "%DNX_PATH%" == "" (
   SET "DNX_PATH=dnx.exe"
 )
 
-@"%DNX_PATH%" --project "%~dp0src\ResumeMaker" --configuration Debug kestrel %*
+@"%DNX_PATH%" --project "%~dp0packages\ResumeMaker\1.0.0\root" --configuration Debug kestrel %*
