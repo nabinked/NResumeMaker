@@ -101,7 +101,7 @@ SET
 
 :: 5. KuduSync
 ::call %KUDU_SYNC_CMD% -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
-xcopy %DEPLOYMENT_TEMP %DEPLOYMENT_TARGET% /Y /s
+xcopy %DEPLOYMENT_SOURCE%\tempPublishFolder\* %DEPLOYMENT_TARGET% /Y /s
 IF !ERRORLEVEL! NEQ 0 goto error
 )
 
