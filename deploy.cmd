@@ -99,7 +99,13 @@ echo !SCM_DNU_RESTORE_OPTIONS!
 ECHO !ERRORLEVEL!
 IF !ERRORLEVEL! NEQ 0 goto error
 
+::show all variable values
+echo all env variables
+printenv
+
 :: 4. Run DNU Bundle
+echo executing dnu publish now
+
 call %DNX_RUNTIME%\bin\dnu publish "C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker\project.json" --runtime %DNX_RUNTIME% --out "%DEPLOYMENT_TEMP%" %SCM_DNU_PUBLISH_OPTIONS%
 IF !ERRORLEVEL! NEQ 0 goto error
 
