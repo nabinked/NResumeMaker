@@ -1,4 +1,0 @@
-[config]
-command = deploy.cmd
-projectJson = src/ResumeMaker/project.json
-DEPLOYMENT_TEMP = tempPublishFolder
