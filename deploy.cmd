@@ -94,15 +94,12 @@ IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. Run DNU Restore
 call %DNX_RUNTIME%\bin\dnu restore "%DEPLOYMENT_SOURCE%" %SCM_DNU_RESTORE_OPTIONS%
-
-echo !SCM_DNU_RESTORE_OPTIONS!
 ECHO !ERRORLEVEL!
 IF !ERRORLEVEL! NEQ 0 goto error
 
 ::show all variable values
 echo all env variables
-printenv
-
+SET
 :: 4. Run DNU Bundle
 echo executing dnu publish now
 
