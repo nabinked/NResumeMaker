@@ -53,15 +53,10 @@ IF NOT DEFINED DEPLOYMENT_TEMP (
   SET CLEAN_LOCAL_DEPLOYMENT_TEMP=true
 )
 
-echo DEPLOYMENT_TEMP
-::Temporarily changing temp file for debugging purposes.
-SET DEPLOYMENT_TEMP=%tempPublishFolder%
-echo DEPLOYMENT_TEMP
-
-IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
-  IF EXIST "%DEPLOYMENT_TEMP%" rd /s /q "%DEPLOYMENT_TEMP%"
-  mkdir "%DEPLOYMENT_TEMP%"
-)
+::IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
+::  IF EXIST "%DEPLOYMENT_TEMP%" rd /s /q "%DEPLOYMENT_TEMP%"
+::  mkdir "%DEPLOYMENT_TEMP%"
+::)
 
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
 SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
@@ -104,7 +99,8 @@ SET
 ::IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 5. KuduSync
-call %KUDU_SYNC_CMD% -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+::call %KUDU_SYNC_CMD% -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+xcopy %DEPLOYMENT_TEMP %DEPLOYMENT_TARGET% /Y /s
 IF !ERRORLEVEL! NEQ 0 goto error
 )
 
