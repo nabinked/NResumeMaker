@@ -9,4 +9,4 @@ Check your connection string settings and then run the application through visua
 
 ##Made from scratch. No ASP.NET Identity, no Entity Framework.
 
-Contributions are welcomed.
+Contributions are welcomed..
