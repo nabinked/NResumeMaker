@@ -1,4 +1,4 @@
-# NResumeMaker
+# NResumeMaker [![Build Status](https://travis-ci.org/nabinked/NResumeMaker.svg?branch=master)](https://travis-ci.org/nabinked/NResumeMaker)
 Just a playground application to practice the all new ASP.NET 5.
 
 Application is a basic resume builder. Absolutely alpha so not even close to production.
