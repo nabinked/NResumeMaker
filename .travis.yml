@@ -1,1 +1,21 @@
-language:C#
+language: ruby
+
+# whitelist
+branches:  
+  only:
+    - master
+
+services:  
+    #Enable docker service inside travis
+    - docker
+
+before_install:  
+    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
+script:  
+    #build the image
+    - docker build --no-cache -t nabinked/nresumebuilder .
+    #tag the build
+    - docker tag nabinked/nresumebuilder:latest nabinked/nresumebuilder:v1
+    #push the image to the repository
+    - docker push nabinked/nresumebuilder

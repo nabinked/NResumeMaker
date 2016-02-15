@@ -1,7 +1,6 @@
 {
     "commands": {
-        "web": "Microsoft.AspNet.Server.Kestrel --server.urls http://0.0.0.0:5000",
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5002"
+        "web": "Microsoft.AspNet.Server.Kestrel --server.urls http://0.0.0.0:52570"
     },
     "dependencies": {
         "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
@@ -43,7 +42,7 @@
         "**.vspscc"
     ],
     "scripts": {
-
+        
     },
     "version": "1.0.0-*"
 }

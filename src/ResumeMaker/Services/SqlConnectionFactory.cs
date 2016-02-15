@@ -2,7 +2,7 @@
 using Microsoft.Extensions.OptionsModel;
 using ResumeMaker.Common;
 
-namespace ResumeMaker.Services.Connection
+namespace ResumeMaker.Services
 {
     public class SqlConnectionFactory : IConnectionFactory
     {

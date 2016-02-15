@@ -1,22 +1,16 @@
 ﻿using System;
 using DbPortal;
-using Microsoft.AspNet.Authentication.OAuth;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Mvc.Routing;
 using Microsoft.AspNet.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
-using Microsoft.Extensions.WebEncoders;
 using ResumeMaker.Common;
 using ResumeMaker.Services;
 using ResumeMaker.Services.Account;
-using ResumeMaker.Services.Connection;
 using ResumeMaker.Services.ToastNotification;
-using ResumeMaker.ViewModels;
 
 namespace ResumeMaker
 {
@@ -42,16 +36,7 @@ namespace ResumeMaker
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddScoped<ISignInManager, SignInManager>();
-            services.AddScoped<IPasswordService, PasswordService>();
-            services.AddScoped<IResumeBuilderViewHelper, ResumeBuilderViewHelper>();
-            services.AddScoped<User, User>();
             services.Configure<Appsettings>(Configuration.GetSection("AppSettings"));
-            services.AddSingleton<IConnectionFactory, SqlConnectionFactory>();
-            services.AddInstance<IToastNotification>(new ToastNotification()
-            {
-            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

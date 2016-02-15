@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.OptionsModel;
 using ResumeMaker.Common;
-using ResumeMaker.Common.Extensions;
-using ResumeMaker.Data.Models.Core;
 using ResumeMaker.Services.ToastNotification;
 using ResumeMaker.ViewModels.Home;
 
@@ -15,6 +13,8 @@ namespace ResumeMaker.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.ResumeDisplayTiles = GetResumeDisplayTiles();
             return View();
         }
 
