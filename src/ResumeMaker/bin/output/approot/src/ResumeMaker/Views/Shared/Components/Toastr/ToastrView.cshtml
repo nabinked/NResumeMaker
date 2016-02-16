@@ -1,0 +1,31 @@
+﻿@using System.Threading.Tasks
+@using ResumeMaker.Services.ToastNotification
+@using ResumeMaker.ViewModels
+@model ResumeMaker.Services.ToastNotification.IToastNotification
+@inject IToastNotification ToastNotification
+
+
+@if (Model != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            @if (ToastNotification.ToastMessages.Any())
+            {
+                foreach (var message in ToastNotification.ToastMessages)
+                {
+                    if (!message.IsDisplayed)
+                    {
+            //toastr options
+            @:toastr.options = @Html.Raw(message.ToastOptionsJson);
+                        @:console.log(toastr.options);
+                        //show toaster
+            @:toastr['@message.ToastType.ToString("F").ToLower()']('@message.Message', '@message.Title');
+                                                        message.IsDisplayed = true;
+                    }
+
+                }
+            }
+        })
+    </script>
+}

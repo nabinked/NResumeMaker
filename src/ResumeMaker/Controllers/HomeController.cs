@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.OptionsModel;
 using ResumeMaker.Common;
 using ResumeMaker.Services.ToastNotification;
@@ -16,6 +17,11 @@ namespace ResumeMaker.Controllers
             var homeViewModel = new HomeViewModel();
             homeViewModel.ResumeDisplayTiles = GetResumeDisplayTiles();
             return View();
+        }
+
+        private List<ResumeDisplayTile> GetResumeDisplayTiles()
+        {
+            throw new System.NotImplementedException();
         }
 
         public HomeController(IToastNotification toastNotification, IOptions<Appsettings> appOptions) : base(toastNotification, appOptions)
