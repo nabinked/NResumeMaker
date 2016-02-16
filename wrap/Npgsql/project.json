@@ -1,0 +1,10 @@
+{
+  "version": "3.0.5-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../src/DbPortal/bin/Debug/Npgsql.dll"
+      }
+    }
+  }
+}
