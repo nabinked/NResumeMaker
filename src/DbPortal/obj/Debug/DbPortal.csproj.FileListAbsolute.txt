@@ -1,0 +1,12 @@
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\DbPortal.dll
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\DbPortal.pdb
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\NMapper.dll
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\Npgsql.dll
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\RestSharp.dll
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\NMapperAttributes.dll
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\NMapper.pdb
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\Npgsql.xml
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\bin\Debug\RestSharp.xml
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\obj\Debug\DbPortal.csprojResolveAssemblyReference.cache
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\obj\Debug\DbPortal.dll
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\DbPortal\obj\Debug\DbPortal.pdb

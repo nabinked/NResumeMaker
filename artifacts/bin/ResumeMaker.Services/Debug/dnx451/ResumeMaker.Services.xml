@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ResumeMaker.Services</name>
+    </assembly>
+    <members>
+        <member name="T:ResumeMaker.Services.Account.PasswordService">
+            <summary>
+            Salted password hashing with PBKDF2-SHA1.
+            Author: havoc AT defuse.ca
+            www: http://crackstation.net/hashing-security.htm
+            Compatibility: .NET 3.0 and later.
+            </summary>
+        </member>
+        <member name="M:ResumeMaker.Services.Account.PasswordService.CreateHash(System.String)">
+            <summary>
+            Creates a salted PBKDF2 hash of the password.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <returns>The hash of the password.</returns>
+        </member>
+        <member name="M:ResumeMaker.Services.Account.PasswordService.CreateRandomPassword(System.Int32)">
+            <summary>
+            Create random password
+            </summary>
+            <param name="length">Length of the password</param>
+            <returns></returns>
+        </member>
+        <member name="M:ResumeMaker.Services.Account.PasswordService.CreateRandomToken(System.Int32)">
+            <summary>
+            Create Random token
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ResumeMaker.Services.Account.PasswordService.ValidatePassword(System.String,System.String)">
+            <summary>
+            Validates a password given a hash of the correct one.
+            </summary>
+            <param name="password">The password to check.</param>
+            <param name="correctHash">A hash of the correct password.</param>
+            <returns>True if the password is correct. False otherwise.</returns>
+        </member>
+        <member name="M:ResumeMaker.Services.Account.PasswordService.SlowEquals(System.Byte[],System.Byte[])">
+            <summary>
+            Compares two byte arrays in length-constant time. This comparison
+            method is used so that password hashes cannot be extracted from
+            on-line systems using a timing attack and then attacked off-line.
+            </summary>
+            <param name="a">The first byte array.</param>
+            <param name="b">The second byte array.</param>
+            <returns>True if both byte arrays are equal. False otherwise.</returns>
+        </member>
+        <member name="M:ResumeMaker.Services.Account.PasswordService.Pbkdf2(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Computes the PBKDF2-SHA1 hash of a password.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <param name="salt">The salt.</param>
+            <param name="iterations">The PBKDF2 iteration count.</param>
+            <param name="outputBytes">The length of the hash to generate, in bytes.</param>
+            <returns>A hash of the password.</returns>
+        </member>
+    </members>
+</doc>
