@@ -4,3 +4,4 @@ C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker.Common\bin\Re
 C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker.Common\bin\Release\RestSharp.xml
 C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker.Common\obj\Release\ResumeMaker.Common.dll
 C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker.Common\obj\Release\ResumeMaker.Common.pdb
+C:\Users\nabin\OneDrive\MyRepositories\ResumeMaker\src\ResumeMaker.Common\obj\Release\ResumeMaker.Common.csprojResolveAssemblyReference.cache

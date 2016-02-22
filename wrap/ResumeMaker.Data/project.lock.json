@@ -63,37 +63,6 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x64": {
-      "DbPortal/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "NMapper": "1.0.0",
-          "Npgsql": "3.0.5",
-          "RestSharp": "105.1.0"
-        }
-      },
-      "NMapper/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "NMapperAttributes": "1.0.0",
-          "RestSharp": "105.1.0"
-        }
-      },
-      "NMapperAttributes/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "Npgsql/3.0.5": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "RestSharp/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      }
     }
   },
   "libraries": {

@@ -37,6 +37,7 @@ namespace ResumeMaker
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<Appsettings>(Configuration.GetSection("AppSettings"));
+            RegisterServices.RegisterServies(services);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -50,7 +51,7 @@ namespace ResumeMaker
 
 
             // Add the platform handler to the request pipeline.
-            
+
             app.UseStaticFiles(
                 new StaticFileOptions
                 {

@@ -8,7 +8,7 @@ namespace ResumeMaker.Services
 {
     public class RegisterServices
     {
-        public void RegisterServies(IServiceCollection services)
+        public static void RegisterServies(IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
             services.AddMvc();

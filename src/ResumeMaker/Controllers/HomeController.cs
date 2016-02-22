@@ -21,7 +21,7 @@ namespace ResumeMaker.Controllers
 
         private List<ResumeDisplayTile> GetResumeDisplayTiles()
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
         public HomeController(IToastNotification toastNotification, IOptions<Appsettings> appOptions) : base(toastNotification, appOptions)
